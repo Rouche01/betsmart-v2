@@ -6,5 +6,22 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Betsmart`,
+    description: `Make more money from sports betting with accurate betting tips that is 90% accurate.`,
+    author: `Betsmart Inc.`
+  },
+  plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `betslips`,
+        path: `${__dirname}/src/images/betslips/`,
+      },
+    },
+  ],
 }

@@ -1,0 +1,321 @@
+.hero {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(../images/heroBg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    h1 {
+        font-size: 72px;
+        font-weight: 700;
+        width: 75%;
+        margin: 0 auto;
+    }
+    p {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 10px 28px;
+        font-weight: 600;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        background-color: #FF9900;
+        cursor: pointer;
+    }
+}
+
+
+.more-info {
+    font-family: 'Poppins', sans-serif;
+    padding: 70px 0;
+    h2 {
+        font-size: 42px;
+        font-weight: 700;
+    }
+}
+
+.main-info {
+    width: 60%;
+    font-size: 19px;
+}
+
+.icon-info-group {
+    img {
+        height: 60px;
+    }
+    h4 {
+        font-weight: 600;
+        font-size: 22px;
+    }
+    p {
+        font-size: 18px;
+    }
+}
+
+.pricing {
+    font-family: 'Poppins', sans-serif;
+    padding: 70px 0;
+    background-color: #FF9900;
+    h2 {
+        font-size: 42px;
+        font-weight: 700;
+    }
+}
+
+.teaser {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    h4 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    hr {
+        border-color: #FF9900;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+    button {
+        cursor: pointer;
+        font-size: 18px;
+        background-color: #FF9900;
+        color: #fff;
+        font-weight: 600;
+        padding: 7px 28px;
+        border: none;
+    }
+}
+
+.single-plan {
+    padding: 20px 35px;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 100%;
+    h2 {
+        font-size: 54px;
+        line-height: 105%;
+    }
+    h4 {
+        font-weight: 600;
+        font-size: 28px;
+    }
+    p {
+        margin-top: -10px;
+        font-weight: 600;
+        color: #333;
+        font-size: 18px;
+    }
+    ul {
+        padding-inline-start: 20px;
+        li {
+            font-size: 17px;
+        }
+    }
+    button {
+        cursor: pointer;
+        font-size: 18px;
+        background-color: #FFF;
+        color: #FF9900;
+        font-weight: 600;
+        padding: 7px 28px;
+        border: none;
+        margin-top: 40px;
+    }
+}
+
+.combo-plan {
+    padding: 20px 35px;
+    background-color: #333;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 100%;
+    h2 {
+        font-size: 54px;
+        line-height: 105%;
+    }
+    h4 {
+        font-weight: 600;
+        font-size: 28px;
+    }
+    p {
+        margin-top: -10px;
+        font-weight: 600;
+        color: #FF9900;
+        font-size: 18px;
+    }
+    ul {
+        padding-inline-start: 20px;
+        li {
+            font-size: 17px;
+        }
+    }
+    button {
+        cursor: pointer;
+        font-size: 18px;
+        background-color: #FF9900;
+        color: #fff;
+        font-weight: 600;
+        padding: 7px 28px;
+        border: none;
+        margin-top: 40px;
+    }
+}
+
+.sub-footer {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding: 70px 0 20px;
+    background-color: #333;
+    text-align: center;
+    h2 {
+        font-size: 42px;
+        font-weight: 600;
+        line-height: 125%;
+        width: 60%;
+        margin: 0 auto;
+    }
+    p {
+        font-size: 19px;
+    }
+    button {
+        padding: 10px 28px;
+        font-weight: 600;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        background-color: #FF9900;
+        cursor: pointer;
+        margin: 65px 0 70px;
+    }
+}
+
+
+@media only screen and (max-width: 499px) {
+    .hero {
+        margin-top: -100px;
+        padding: 0 20px;
+        h1 {
+            font-size: 42px;
+            width: 100%;
+        }
+        p {
+            font-size: 18px;
+        }
+        button {
+            font-size: 18px;
+        }
+    }
+
+    .more-info {
+        padding: 40px 20px;
+        h2 {
+            font-size: 28px;
+        }
+    }
+
+    .main-info {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .icon-info-group {
+        img {
+            height: 40px;
+        }
+        h4 {
+            font-weight: 600;
+            font-size: 22px;
+        }
+        p {
+            font-size: 17px;
+        }
+    }
+
+    .pricing {
+        padding: 40px 20px;
+        h2 {
+            font-size: 28px;
+        }
+    }
+
+    .teaser {
+        h4 {
+            font-size: 18px;
+        }
+        button {
+            font-size: 16px;
+        }
+    }
+
+    .single-plan {
+        padding: 30px 30px;
+        border: 1px solid #fff;
+        h2 {
+            font-size: 44px;
+            line-height: 105%;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 16px;
+        }
+        ul {
+            li {
+                font-size: 15px;
+            }
+        }
+        button {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+    }
+
+    .combo-plan {
+        padding: 30px 30px;
+        h2 {
+            font-size: 44px;
+            line-height: 105%;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 16px;
+        }
+        ul {
+            li {
+                font-size: 15px;
+            }
+        }
+        button {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+    }
+
+    .sub-footer {
+        padding: 40px 20px 20px;
+        h2 {
+            font-size: 28px;
+            line-height: 125%;
+            width: 100%;
+        }
+        p {
+            font-size: 17px;
+        }
+        button {
+            font-size: 18px;
+            margin: 65px 0 70px;
+        }
+    }
+}

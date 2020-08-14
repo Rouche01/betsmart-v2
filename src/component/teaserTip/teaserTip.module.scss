@@ -1,0 +1,31 @@
+.teaser-tip {
+    border-bottom: 1px solid #FF9900;
+    h3 {
+        font-weight: 700;
+        color: #333;
+    }
+}
+
+.league-name {
+    margin-top: -5px;
+}
+
+.tip-values {
+    font-size: 17px;
+    margin-top: -5px;
+}
+
+@media only screen and (max-width: 499px) {
+    .teaser-tip {
+        h3 {
+            font-size: 24px;
+        }
+        .league-name {
+            font-size: 14px;
+            margin-top: -10px;
+        }
+        .tip-values {
+            font-size: 16px;
+        }
+    }
+}

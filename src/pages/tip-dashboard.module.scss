@@ -1,0 +1,146 @@
+.tip-dashboard {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.83), rgba(255, 255, 255, 0.83)), url(../images/heroBg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    nav {
+        display: flex;
+        align-items: center;
+        padding: 10px 60px;
+        ul {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-top: 15px;
+            li {
+                list-style-type: none;
+                margin-right: 32px;
+                a {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 32px;
+    &:hover {
+        color: #333;
+        text-decoration: none;
+    }
+}
+
+.nav-btn {
+    background-color: #FF9900;
+    padding: 10px 30px;
+    color: #fff;
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.profile-link {
+    font-size: 20px;
+    color: #333;
+}
+
+.profile-img {
+    margin-top: -35px;
+    background-color: #868181;
+    border-radius: 100%;
+}
+
+.tip-plus-dash {
+    padding-top: 60px;
+}
+
+.profile-info {
+    background-color: #333;
+    padding: 0 40px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    h3 {
+        font-weight: 600;
+    }
+    hr {
+        width: 100%;
+        border: 1px dashed #fff;
+        opacity: 0.2;
+    }
+}
+
+.billing-title {
+    background-color: #FF9900;
+    color: #333;
+    display: inline-block;
+    padding: 7px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.billing-date {
+    font-size: 18px;
+    margin-top: -7px;
+}
+
+
+@media only screen and (max-width: 499px) {
+    .logo {
+        font-size: 28px;
+    }
+
+    .tip-dashboard {
+        nav {
+            padding: 5px 20px;
+            ul {
+                li {
+                    margin-right: 20px;
+                    &:nth-child(2) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .tip-plus-dash {
+        padding: 80px 20px 0;
+    }
+
+    .profile-img {
+        width: 80px !important;
+        height: 80px;
+    }
+
+    .profile-info {
+        padding: 0 25px;
+        padding-bottom: 10px;
+        h3 {
+            font-size: 25px;
+        }
+        p {
+            margin-top: -10px;
+        }
+        hr {
+            margin-bottom: 25px;
+        }
+    }
+
+    .billing-title {
+        font-size: 14px;
+    }
+    
+    .billing-date {
+        font-size: 17px;
+    }
+}
+

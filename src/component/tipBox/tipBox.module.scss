@@ -1,0 +1,39 @@
+.tip-box {
+    background-color: #c4c4c4;
+    padding: 30px 45px;
+    margin-bottom: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    h4 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #333;
+    }
+}
+
+.league-name {
+    margin-top: -10px;
+    font-size: 18px;
+}
+
+.tips-plus-odds {
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 499px) {
+    .tip-box {
+        padding: 20px 35px;
+        margin-bottom: 20px;
+        h4 {
+            font-size: 22px;
+        }
+    }
+
+    .league-name {
+        // margin-top: -10px;
+        font-size: 14px;
+    }
+
+    .tips-plus-odds {
+        font-size: 16px;
+    }
+}

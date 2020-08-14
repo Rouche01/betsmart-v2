@@ -1,0 +1,110 @@
+.contact-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(../images/heroBg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+    margin-top: -80px;
+}
+
+.contact-section {
+    h2 {
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+    }
+    hr {
+        margin-top: 60px;
+    }
+}
+
+.contact-info {
+    font-family: 'Poppins', sans-serif;
+    h3 {
+        font-weight: 600;
+    }
+    p {
+        font-size: 18px;
+    }
+    img {
+        width: 20px;
+    }
+}
+
+.form-wrapper {
+    margin-top: -120px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    padding: 30px 60px;
+    box-shadow: -8px 6px 4px rgba(0, 0, 0, 0.25);
+    textarea {
+        padding: 10px 26px;
+        width: 100%;
+        border: 1px solid #c4c4c4;
+        background-color: #c4c4c4;
+        font-size: 18px;
+        font-family: 'Poppins', sans-serif;
+        height: 150px;
+        &:focus {
+            outline: none;
+            border-color: #FF9900;
+        }
+    }
+    input[type='submit'] {
+        width: 100%;
+        background-color: #FF9900;
+        color: #fff;
+        border: 1px solid #FF9900;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 12px 0;
+    }
+}
+
+.location-icon {
+    margin-top: 7px;
+}
+
+
+@media only screen and (max-width: 499px) {
+    .contact-hero {
+        height: 50vh;
+        margin-top: -100px;
+    }
+
+    .contact-section {
+        padding: 0 20px;
+        h2 {
+            font-size: 28px;
+        }
+        hr {
+            margin-top: 60px;
+        }
+    }
+
+    .contact-info {
+        text-align: center;
+        color: #333;
+        h3 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 17px;
+        }
+        img {
+            width: 20px;
+        }
+    }
+
+    .form-wrapper {
+        padding: 30px 30px;
+        textarea {
+            padding: 10px 18px;
+            font-size: 16px;
+            height: 100px;
+        }
+        input[type='submit'] {
+            font-size: 16px;
+            padding: 10px 0;
+        }
+    }
+}
