@@ -42,8 +42,14 @@
 }
 
 .select-input {
+    margin-bottom: 24px;
     label {
         font-weight: 600;
+    }
+    small {
+        display: block;
+        color: red; 
+        margin-top: 5px;
     }
     select {
         width: 100%;
@@ -51,7 +57,6 @@
         border: 1px solid #c4c4c4;
         padding: 10px 26px;
         margin-top: -5px;
-        margin-bottom: 20px;
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
