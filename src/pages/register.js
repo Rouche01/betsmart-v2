@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
+import { Auth } from 'aws-amplify';
 import styles from './register.module.scss';
 import Input from '../component/input/input';
 import SEO from '../component/seo';
@@ -11,6 +12,7 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [pricingPlan, setPricingPlan] = useState('');
+  const [registerError, setRegisterError] = useState('');
   const [validationErrors, setValidationErrors] = useState({});
 
   const inputChange = (e) => {
@@ -38,6 +40,16 @@ const Register = (props) => {
     }
   }
 
+  const signUp = async(aEmail, aPassword, aFName, aLName, aPhone, aPricingPlan) => {
+    try {
+      await Auth.signUp({aEmail, aPassword, attributes: { aFName, aLName, aPhone, aPricingPlan } })
+      console.log('Working');
+    } catch(error) {
+      setRegisterError(error);
+      console.log('There was an error signing up');
+    }
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -62,8 +74,12 @@ const Register = (props) => {
 
     setValidationErrors(errorsInit);
 
-    console.log(validationErrors);
-    fields = {};
+    if(Object.entries(errorsInit).length === 0) {
+      signUp(email, password, fName, lName, phone, pricingPlan);
+    }
+
+    // console.log(validationErrors);
+    // fields = {};
   }
 
   // useEffect(() => {

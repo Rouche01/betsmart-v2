@@ -3,8 +3,8 @@ import styles from './tip-dashboard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'gatsby';
-import TipBox from '../component/tipBox/tipBox';
-import SEO from '../component/seo';
+import TipBox from './tipBox/tipBox';
+import SEO from './seo';
 
 const tipDashboard = (props) => {
   const tipData = [

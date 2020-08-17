@@ -8,6 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Betsmart`,
+    siteUrl: `https://betsmart.com.ng`,
     description: `Make more money from sports betting with accurate betting tips that is 90% accurate.`,
     author: `Betsmart Inc.`
   },

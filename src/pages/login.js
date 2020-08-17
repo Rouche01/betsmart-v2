@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styles from './login.module.scss';
 import Input from '../component/input/input';
+import { Auth } from 'aws-amplify';
 import SEO from '../component/seo';
 
 const Login = (props) => {

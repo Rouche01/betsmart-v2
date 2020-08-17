@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-betsmart-dev-135909-authRole",
+            "UnauthRoleArn": "arn:aws:iam::059275200619:role/amplify-betsmart-dev-135909-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::059275200619:role/amplify-betsmart-dev-135909-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-betsmart-dev-135909-deployment",
+            "UnauthRoleName": "amplify-betsmart-dev-135909-unauthRole",
+            "StackName": "amplify-betsmart-dev-135909",
+            "StackId": "arn:aws:cloudformation:us-east-2:059275200619:stack/amplify-betsmart-dev-135909/2015a800-def7-11ea-aae6-0a123d686b08",
+            "AmplifyAppId": "d24jeony3hkip0"
+        },
+        "categories": {
+            "auth": {
+                "betsmart32bd847f": {}
+            }
+        }
+    }
+}
