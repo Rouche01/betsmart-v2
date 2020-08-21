@@ -1,0 +1,10 @@
+[
+    {
+        "groupName": "single",
+        "precedence": 1
+    },
+    {
+        "groupName": "combo",
+        "precedence": 2
+    }
+]

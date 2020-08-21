@@ -13,7 +13,12 @@
         },
         "categories": {
             "auth": {
-                "betsmart32bd847f": {}
+                "betsmart3c0d3fd2": {}
+            },
+            "function": {
+                "betsmart3c0d3fd2PostConfirmation": {
+                    "GROUP": "single"
+                }
             }
         }
     }

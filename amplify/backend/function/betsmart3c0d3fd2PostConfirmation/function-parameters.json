@@ -1,0 +1,16 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "betsmart3c0d3fd2",
+  "functionName": "betsmart3c0d3fd2PostConfirmation",
+  "resourceName": "betsmart3c0d3fd2PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\Users\\User\\AppData\\Roaming\\nvm\\v13.7.0\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\utils/../triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "roleName": "betsmart3c0d3fd2PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "single"
+}

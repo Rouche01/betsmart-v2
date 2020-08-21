@@ -1,0 +1,68 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authbetsmart3c0d3fd2UserPoolId": {
+            "Type": "String",
+            "Default": "authbetsmart3c0d3fd2UserPoolId"
+        },
+        
+        "authbetsmart3c0d3fd2AppClientID": {
+            "Type": "String",
+            "Default": "authbetsmart3c0d3fd2AppClientID"
+        },
+        "authbetsmart3c0d3fd2AppClientIDWeb": {
+            "Type": "String",
+            "Default": "authbetsmart3c0d3fd2AppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "singleGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "single",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authbetsmart3c0d3fd2UserPoolId"
+              } 
+            }
+        },
+        
+    
+        "comboGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "combo",
+              "Precedence" : 2,
+              
+              "UserPoolId" : {
+                "Ref": "authbetsmart3c0d3fd2UserPoolId"
+              } 
+            }
+        },
+        
+    
+    
+    },
+    
+}

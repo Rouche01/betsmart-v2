@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
-import { Auth } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
+import { navigate } from '@reach/router';
+import awsconfig from '../aws-exports';
 import styles from './register.module.scss';
 import Input from '../component/input/input';
 import SEO from '../component/seo';
+Amplify.configure(awsconfig);
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
@@ -12,7 +15,10 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [pricingPlan, setPricingPlan] = useState('');
+  const [confirmationCode, setConfirmationCode] = useState('');
+  const [signupStage, setSignupStage] = useState(0);
   const [registerError, setRegisterError] = useState('');
+  const [loadingState, setLoadingState] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
 
   const inputChange = (e) => {
@@ -35,18 +41,41 @@ const Register = (props) => {
       case 'pricing-plan':
         setPricingPlan(e.target.options[e.target.selectedIndex].value);
         break;
+      case 'confirmation-code':
+        setConfirmationCode(e.target.value);
+        break;
       default:
         break;
     }
   }
 
-  const signUp = async(aEmail, aPassword, aFName, aLName, aPhone, aPricingPlan) => {
+  async function signUp(aEmail, aFName, aLName, aPassword, aPhone, aPricingPlan)  {
+    setLoadingState(true);
     try {
-      await Auth.signUp({aEmail, aPassword, attributes: { aFName, aLName, aPhone, aPricingPlan } })
+      await Auth.signUp({username: aEmail, password: aPassword, attributes: { email: aEmail, phone_number: aPhone, given_name: aFName, family_name: aLName, gender: 'rather not say', 'custom:user-type': aPricingPlan} })
+      setSignupStage(1);
       console.log('Working');
+      setLoadingState(false);
+      setRegisterError('');
     } catch(error) {
-      setRegisterError(error);
-      console.log('There was an error signing up');
+      setRegisterError(error.message);
+      console.log('There was an error signing up', error);
+      setLoadingState(false);
+    }
+  }
+
+  const confirmSignup = async(username, authCode) => {
+    setLoadingState(true);
+    try {
+      await Auth.confirmSignUp(username, authCode);
+      navigate('/login');
+      console.log('works')
+      setLoadingState(false);
+      setRegisterError('');
+    } catch(err) {
+      console.log('error in confirmation', err);
+      setRegisterError(err.message);
+      setLoadingState(false);
     }
   }
 
@@ -75,11 +104,19 @@ const Register = (props) => {
     setValidationErrors(errorsInit);
 
     if(Object.entries(errorsInit).length === 0) {
-      signUp(email, password, fName, lName, phone, pricingPlan);
+      const numberArr = phone.split('');
+      const convertedPhone = `+234${numberArr.splice(1).join('')}`;
+      signUp(email, fName, lName, password, convertedPhone, pricingPlan);
     }
 
     // console.log(validationErrors);
     // fields = {};
+  }
+
+  const handleConfirmation = e => {
+    // console.log('works');
+    e.preventDefault();
+    confirmSignup(email, confirmationCode);
   }
 
   // useEffect(() => {
@@ -99,28 +136,41 @@ const Register = (props) => {
               <h2>Betsmart</h2>
               <h3 className="mt-5">Create Your Account</h3>
               <form className="mt-4">
-                <Input type="email" nameAttr="email" label="Email Address" id="email" 
-                  changed={inputChange} error={validationErrors.email} />
-                <Input type="text" nameAttr="fname" label="First Name" id="fname" 
-                  changed={inputChange} error={validationErrors.fName} />
-                <Input type="text" nameAttr="lname" label="Last Name" id="lname" 
-                  changed={inputChange} error={validationErrors.lName} />
-                <Input type="password" nameAttr="password" label="Password" id="password" 
-                  changed={inputChange} error={validationErrors.password} />
-                <Input type="number" nameAttr="phone" label="Phone" id="phone" 
-                  changed={inputChange} error={validationErrors.phone} />
-                <div className={styles.selectInput}>
-                  <label htmlFor="pricing-plan">Pricing Plan</label>
-                  <select id="pricing-plan" onChange={inputChange} >
-                    <option value="choose plan" defaultValue="choose plan">Choose Your Plan</option>
-                    <option value="single plan">Single Plan</option>
-                    <option value="combo plan">Combo Plan</option>
-                  </select>
-                  { validationErrors.pricingPlan && <small>{validationErrors.pricingPlan}</small>}
-                </div>
-                <button onClick={onSubmit} >Register</button>
+                { registerError && <p className={styles.registerError}>{registerError}</p>}
+                { signupStage === 0 && <React.Fragment>
+                  <Input type="email" nameAttr="email" label="Email Address" id="email" 
+                    changed={inputChange} error={validationErrors.email} />
+                  <Input type="text" nameAttr="fname" label="First Name" id="fname" 
+                    changed={inputChange} error={validationErrors.fName} />
+                  <Input type="text" nameAttr="lname" label="Last Name" id="lname" 
+                    changed={inputChange} error={validationErrors.lName} />
+                  <Input type="password" nameAttr="password" label="Password" id="password" 
+                    changed={inputChange} error={validationErrors.password} />
+                  <Input type="number" nameAttr="phone" label="Phone" id="phone" 
+                    changed={inputChange} error={validationErrors.phone} />
+                  <div className={styles.selectInput}>
+                    <label htmlFor="pricing-plan">Pricing Plan</label>
+                    <select id="pricing-plan" onChange={inputChange} >
+                      <option value="" selected disabled hidden>Choose Your Plan</option>
+                      <option value="single">Single Plan</option>
+                      <option value="combo">Combo Plan</option>
+                    </select>
+                    { validationErrors.pricingPlan && <small>{validationErrors.pricingPlan}</small>}
+                  </div>
+                  <button onClick={onSubmit} >Register
+                    <span className={loadingState ? [styles.isLoading, styles.btnRegLoader].join(' ') : styles.btnRegLoader}><i>Loading...</i></span>
+                  </button>
+                  <p className="mt-3" >Have an account? <Link to="/login">Log in</Link></p>
+                </React.Fragment>}
+                { signupStage === 1 && <React.Fragment>
+                  <h5 className="font-weight-bold mb-4">Enter the confirmation code sent to your email to validate your account</h5>
+                  <Input type="text" nameAttr="confirmation-code" label="Confirmation Code" id="confirmation-code"
+                    changed={inputChange} />
+                  <button onClick={handleConfirmation}>Confirm
+                    <span className={loadingState ? [styles.isLoading, styles.btnRegLoader].join(' ') : styles.btnRegLoader}><i>Loading...</i></span>
+                  </button>
+                </React.Fragment>}
               </form>
-              <p className="mt-3" >Have an account? <Link to="/login">Log in</Link></p>
             </div>
           </div>
         </div>
