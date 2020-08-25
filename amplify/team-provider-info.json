@@ -19,6 +19,12 @@
                 "betsmart3c0d3fd2PostConfirmation": {
                     "GROUP": "single"
                 }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d24jeony3hkip0",
+                    "type": "cicd"
+                }
             }
         }
     }

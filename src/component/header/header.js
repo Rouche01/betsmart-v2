@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styles from './header.module.scss';
+import Logo from '../../images/Betsmart-Logo-White.png';
 
 const Header = (props) => {
   const [toggleState, setToggleState] = useState(false);
@@ -21,7 +22,9 @@ const Header = (props) => {
   return (
     <header>
       <nav className={styles.nav}>
-        <Link to="/" className={styles.logo}>Betsmart</Link>
+        <Link to="/" className={styles.logo}>
+          <img src={Logo} alt="Betsmart logo" />
+        </Link>
         <ul className={popupClasses}>
           <li>
             <Link to="/contact">Contact Us</Link>

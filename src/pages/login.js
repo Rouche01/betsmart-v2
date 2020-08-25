@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
 import { setUser, isLoggedIn } from '../utils/auth';
 import Amplify, { Auth } from 'aws-amplify';
@@ -6,6 +6,8 @@ import awsconfig from '../aws-exports';
 import styles from './login.module.scss';
 import Input from '../component/input/input';
 import SEO from '../component/seo';
+import Logo from '../images/Betsmart-Logo.png';
+import LogoAlt from '../images/Betsmart-Logo-White.png';
 Amplify.configure(awsconfig);
 
 const Login = (props) => {
@@ -14,6 +16,18 @@ const Login = (props) => {
   const [loginError, setLoginError] = useState('');
   const [loadingState, setLoadingState] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+  const [windowSize, setWindowSize] = useState();
+
+  useEffect(() => {
+    const getWindowSize = window.innerWidth;
+    setWindowSize(getWindowSize);
+  }, []);
+
+  useEffect(() => {
+    if(isLoggedIn()) {
+      navigate('/app/dashboard');
+    }
+  }, [])
 
   const inputChange = e => {
     switch(e.target.id) {
@@ -62,14 +76,16 @@ const Login = (props) => {
       if(fields.email && !fields.email.match(validMail)) {
         errorsInit.email = "This email is invalid";
       }
-      if(fields.password && fields.password.length < 6) {
-        errorsInit.password = "Password must be at least 6 characters";
+      if(fields.password && fields.password.length < 8) {
+        errorsInit.password = "Password must be at least 8 characters";
       }
     }
 
     setValidationErrors(errorsInit);
     // console.log(validationErrors);
-    signIn(email, password);
+    if(Object.entries(errorsInit).length === 0) {
+      signIn(email, password);
+    }
   }
 
   return(
@@ -78,7 +94,7 @@ const Login = (props) => {
       <div className={styles.loginContainer}>
         <div className="row">
           <div className={["col-md-4", 'order-md-1', 'order-2', styles.loginForm].join(' ')}>
-            <h2>Betsmart</h2>
+            <Link to="/"><img src={windowSize > 500 ? Logo : LogoAlt} alt="Betsmart logo" /></Link>
             <h3 className="mt-5">Welcome back, Log in</h3>
             <div className="mt-4">
               { loginError && <p className={styles.loginError}>{loginError}</p>}

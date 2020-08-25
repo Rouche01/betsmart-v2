@@ -59,7 +59,7 @@ const footer = ({bgType}) => {
           <button className="btn btn-lg">Subscribe</button>
         </div>
         <input type="checkbox" name="agreement" id="agreement" className="mr-2 mt-2" />
-        <label className="mt-2" for="agreement">I Agree to the Privacy Policy</label>
+        <label className="mt-2" htmlFor="agreement">I Agree to the Privacy Policy</label>
       </div>
     </div>
   );

@@ -27,13 +27,8 @@
 }
 
 .logo {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 32px;
-    &:hover {
-        color: #333;
-        text-decoration: none;
+    img {
+        width: 180px;
     }
 }
 
@@ -155,6 +150,7 @@
     button {
         background-color: #FF9900;
         padding: 10px 30px;
+        position: relative;
         color: #fff;
         border: none;
         &:hover {
@@ -177,6 +173,7 @@
     button {
         background-color: #FF9900;
         padding: 10px 30px;
+        position: relative;
         color: #fff;
         border: none;
         &:hover {
@@ -199,6 +196,7 @@
     button {
         background-color: #FF9900;
         padding: 10px 30px;
+        position: relative;
         color: #fff;
         border: none;
         &:hover {
@@ -265,10 +263,38 @@
     }
 }
 
+.btn-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transition: transform 0.2s;
+    transform: scale(0);
+    &.is-loading {
+        transform: scale(1);
+    }
+    i {
+        color: rgba(255, 255, 255, 0.7);
+        width: 2px;
+        height: 16px;
+        position: relative;
+        text-indent: -9999em;
+        animation: loader 1.5s infinite linear;
+        transform: skew(135deg);
+    }
+}
+
 
 @media only screen and (max-width: 499px) {
     .logo {
-        font-size: 28px;
+        img {
+            width: 150px;
+        }
     }
 
     .tip-dashboard {
@@ -316,4 +342,37 @@
         font-size: 17px;
     }
 }
+
+
+$spacer: 8px;
+$spacer-half: ($spacer / 2);
+$trailing-opacity: 0.8;
+$color-nobel: rgba(43, 38, 38, 0.5);
+
+@keyframes loader {
+    0%, 100% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0 $color-nobel, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    12.5% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0 rgba($color-nobel, $trailing-opacity), -(($spacer*2) + $spacer-half) 0 $color-nobel, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    25% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0 rgba($color-nobel, $trailing-opacity), -(($spacer*1) + $spacer-half) 0 $color-nobel, -($spacer-half) 0, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    37.5% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0 rgba($color-nobel, $trailing-opacity), -($spacer-half) 0 $color-nobel, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    50% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0 rgba($color-nobel, $trailing-opacity), ($spacer-half) 0 $color-nobel, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    62.5% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0, ($spacer-half) 0 rgba($color-nobel, $trailing-opacity), (($spacer*1) + $spacer-half) 0 $color-nobel, (($spacer*2) + $spacer-half) 0, (($spacer*3) + $spacer-half) 0;
+    }
+    75% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0 rgba($color-nobel, $trailing-opacity), (($spacer*2) + $spacer-half) 0 $color-nobel, (($spacer*3) + $spacer-half) 0;
+    }
+    87.5% {
+      box-shadow: -(($spacer*3) + $spacer-half) 0, -(($spacer*2) + $spacer-half) 0, -(($spacer*1) + $spacer-half) 0, -($spacer-half) 0, ($spacer-half) 0, (($spacer*1) + $spacer-half) 0, (($spacer*2) + $spacer-half) 0 rgba($color-nobel, $trailing-opacity), (($spacer*3) + $spacer-half) 0 $color-nobel;
+    }
+  }
 

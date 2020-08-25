@@ -14,9 +14,8 @@
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    h2{
-        font-weight: 700;
-        color: rgb(255, 153, 0);
+    img {
+        width: 180px;
     }
     h3 {
         font-weight: 600;
@@ -133,7 +132,8 @@
     .register-form {
         padding: 10px 40px;
         height: 100%;
-        h2{
+        img {
+            width: 160px;
             position: absolute;
             top: -120px;
             left: 50px;

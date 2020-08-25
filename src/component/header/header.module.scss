@@ -7,7 +7,7 @@
     ul {
         display: flex;
         margin-left: auto;
-        margin-top: 15px;
+        margin-top: 22px;
         li {
             list-style-type: none;
             margin-right: 32px;
@@ -22,10 +22,9 @@
 }
 
 .logo {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 32px;
+    img {
+        width: 180px;
+    }
 }
 
 .logo:hover {
@@ -45,7 +44,9 @@
 
 @media only screen and (max-width: 499px) {
     .logo {
-        font-size: 28px;
+        img {
+            width: 150px;
+        }
     }
     .nav {
         padding: 20px 20px;

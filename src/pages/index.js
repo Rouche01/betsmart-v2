@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../component/layout";
 import styles from "./index.module.scss";
 import SEO from '../component/seo';
 import { Link, graphql } from "gatsby";
+import { navigate } from '@reach/router';
+import { isLoggedIn } from '../utils/auth';
 import calendarIcon from "../images/calendar-2.svg";
 import checkIcon from "../images/check-mark.svg";
 import dollarIcon from "../images/dollar-sign.svg";
@@ -10,6 +12,13 @@ import TeaserTip from "../component/teaserTip/teaserTip";
 import Img from 'gatsby-image';
 
 export default function Home({data}) {
+
+  useEffect(() => {
+    if(isLoggedIn()) {
+      navigate('/app/dashboard');
+    }
+  }, [])
+
   const tipData = [
     {
       homeTeam: 'Pachucha',

@@ -11,9 +11,8 @@
 
 .login-form {
     padding: 40px 60px;
-    h2{
-        font-weight: 700;
-        color: rgb(255, 153, 0);
+    img {
+        width: 180px;
     }
     h3 {
         font-weight: 600;
@@ -96,7 +95,8 @@
 
     .login-form {
         padding: 10px 45px;
-        h2{
+        img{
+            width: 160px;
             position: absolute;
             top: -120px;
             left: 50px;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './tip-dashboard.module.scss';
+import Logo from '../images/Betsmart-Logo.png';
+import Notifications, {notify} from 'react-notify-toast';
 import { getCurrentUser, logout, setUser } from '../utils/auth';
 import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import { getSession } from '../utils/accountTools';
@@ -28,6 +30,7 @@ const TipDashboard = (props) => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [error, setError] = useState('');
+  const [loadingState, setLoadingState] = useState(false);
   const [supportNumber, setSupportNumber] = useState('');
   const [supportSubject, setSupportSubject] = useState('');
   const [supportMessage, setSupportMessage] = useState('');
@@ -139,7 +142,8 @@ const TipDashboard = (props) => {
   }
   
   const updateUserInfo = async() => {
-    console.log('works');
+    // console.log('works');
+    setLoadingState(true);
     getSession().then(({ user }) => {
       const attributeList = [];
       const formattedPhoneNum = `+234${phone.slice(1)}`;
@@ -160,7 +164,10 @@ const TipDashboard = (props) => {
       }
 
       user.updateAttributes(attributeList, (err, result) => {
-        if(err) console.error(err);
+        if(err) {
+          notify.show(err, "error");
+          setLoadingState(false);
+        }
         Auth.currentAuthenticatedUser().then(user => {
           const userInfo = {
             ...user.attributes,
@@ -168,32 +175,43 @@ const TipDashboard = (props) => {
           }
           setUser(userInfo);
         });
+        setLoadingState(false);
+        notify.show("Your profile was edited successfully!", "success");
         console.log(result);
       });
     });
   }
 
   const changeUserPassword = async() => {
+    setLoadingState(true);
     const user = await Auth.currentAuthenticatedUser();
     try { 
       await Auth.changePassword(user, oldPassword, newPassword);
       await Auth.signOut();
+      setLoadingState(false);
+      // notify.show("Your password was successfully changed!", "success");
       logout(() => {
         navigate('/login');
       })
     } catch(err) {
-      setError(err.message);
-      console.log(err);
+      const errorArr = err.message.split(':');
+      const idx = errorArr.length - 1;
+      setError(errorArr[idx]);
+      setLoadingState(false);
+      // console.log(errorArr[idx]);
     }
   }
 
   return (
     <React.Fragment>
+      <Notifications options={{zIndex: 200, top: '20px'}} />
       <SEO title="Dashboard" />
       <div className={styles.tipDashboard}>
         <header>
           <nav>
-            <Link className={styles.logo} to="/tip-dashboard">Betsmart</Link>
+            <Link className={styles.logo} to="/app/dashboard">
+              <img src={Logo} alt="Betsmart logo" />
+            </Link>
             <ul>
               <li className={styles.dropdown}>
                 <button className={styles.profileBtn}>
@@ -265,7 +283,9 @@ const TipDashboard = (props) => {
                       value={formattedPlan} disabled={true} />
                   </div>
                 </div>
-                <button className="mt-4" onClick={updateUserInfo}>Save Changes</button>
+                <button className="mt-4" onClick={updateUserInfo}>Save Changes
+                  <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                </button>
               </div>}
               { dashboardState === 'password' && <div className={styles.resetPassword}>
                 <h3>Reset Password</h3>
@@ -280,7 +300,9 @@ const TipDashboard = (props) => {
                       id="new-password" changed={inputChange} />
                   </div>
                 </div>
-                <button className="mt-4" onClick={changeUserPassword} >Change Password</button>
+                <button className="mt-4" onClick={changeUserPassword}>Change Password
+                  <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                </button>
               </div>}
               { dashboardState === 'support' && <div className={styles.support}>
                 <h3>Need Support? Send us a Message</h3>

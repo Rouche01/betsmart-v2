@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
+import Logo from '../images/Betsmart-Logo.png';
+import LogoAlt from '../images/Betsmart-Logo-White.png';
 import Amplify, { Auth } from 'aws-amplify';
+import { isLoggedIn } from '../utils/auth';
 import { navigate } from '@reach/router';
 import awsconfig from '../aws-exports';
 import styles from './register.module.scss';
@@ -9,6 +12,12 @@ import SEO from '../component/seo';
 Amplify.configure(awsconfig);
 
 const Register = (props) => {
+  useEffect(() => {
+    if(isLoggedIn()) {
+      navigate('/app/dashboard');
+    }
+  }, []);
+
   const [email, setEmail] = useState('');
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
@@ -20,6 +29,12 @@ const Register = (props) => {
   const [registerError, setRegisterError] = useState('');
   const [loadingState, setLoadingState] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
+  const [windowSize, setWindowSize] = useState();
+
+  useEffect(() => {
+    const getWindowSize = window.innerWidth;
+    setWindowSize(getWindowSize);
+  }, []);
 
   const inputChange = (e) => {
     switch(e.target.id) {
@@ -119,10 +134,6 @@ const Register = (props) => {
     confirmSignup(email, confirmationCode);
   }
 
-  // useEffect(() => {
-  //   console.log(pricingPlan);
-  // }, [pricingPlan]);
-
   return(
     <React.Fragment>
       <SEO title="Register" />
@@ -133,7 +144,7 @@ const Register = (props) => {
           </div>
           <div className="col-md-5">
             <div className={styles.registerForm}>
-              <h2>Betsmart</h2>
+              <Link to="/"><img src={ windowSize > 500 ? Logo : LogoAlt } alt="Betsmart logo" /></Link>
               <h3 className="mt-5">Create Your Account</h3>
               <form className="mt-4">
                 { registerError && <p className={styles.registerError}>{registerError}</p>}

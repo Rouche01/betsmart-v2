@@ -20,6 +20,7 @@
     "amazon-cognito-identity-js": "^4.3.4",
     "aws-amplify": "^3.0.24",
     "aws-amplify-react": "^4.1.22",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "chokidar": "^3.4.2",
     "dot-prop": "^5.2.0",
@@ -34,7 +35,8 @@
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-notify-toast": "^0.5.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"

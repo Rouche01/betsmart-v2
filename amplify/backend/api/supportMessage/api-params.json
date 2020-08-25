@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/sendEmail",
+            "lambdaFunction": "sendEmail",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "supportMessage",
+    "apiName": "supportMessage",
+    "functionArns": [
+        {
+            "lambdaFunction": "sendEmail"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-betsmart-dev-135909-authRole",
+        "unAuthRoleName": "amplify-betsmart-dev-135909-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "sendEmail",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
