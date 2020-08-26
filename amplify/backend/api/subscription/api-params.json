@@ -1,18 +1,18 @@
 {
     "paths": [
         {
-            "name": "/sendEmail",
-            "lambdaFunction": "sendEmail",
+            "name": "/checkout",
+            "lambdaFunction": "subscription",
             "privacy": {
                 "open": true
             }
         }
     ],
-    "resourceName": "supportMessage",
-    "apiName": "supportMessage",
+    "resourceName": "subscription",
+    "apiName": "subscription",
     "functionArns": [
         {
-            "lambdaFunction": "sendEmail"
+            "lambdaFunction": "subscription"
         }
     ],
     "privacy": {
@@ -24,7 +24,7 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "sendEmail",
+            "resourceName": "subscription",
             "attributes": [
                 "Name",
                 "Arn"

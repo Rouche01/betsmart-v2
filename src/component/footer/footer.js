@@ -36,10 +36,10 @@ const footer = ({bgType}) => {
               <a href="https://twitter.com"><img src={twIcon} alt="twitter icon"/></a>
             </li>
             <li className="mx-3 mx-md-0 mr-0 mr-md-3">
-              <a href="https://facebook.com"><img src={fbIcon} alt="facebook icon"/></a>
+              <a href="https://www.facebook.com/betsmartNG/"><img src={fbIcon} alt="facebook icon"/></a>
             </li>
             <li className="mx-3 mx-md-0 mr-0 mr-md-3">
-              <a href="https://instagram.com"><img src={igIcon} alt="instagram icon" /></a>
+              <a href="https://www.instagram.com/betsmart_ng/"><img src={igIcon} alt="instagram icon" /></a>
             </li>
         </ul>
         <p>Betsmart, Copyright &copy; 2020</p>

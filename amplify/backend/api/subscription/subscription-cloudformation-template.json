@@ -14,15 +14,15 @@
         },
     
     
-          "functionsendEmailName": {
+          "functionsubscriptionName": {
             "Type": "String",
-            "Default": "functionsendEmailName"
+            "Default": "functionsubscriptionName"
           },
         
           
-          "functionsendEmailArn": {
+          "functionsubscriptionArn": {
             "Type": "String",
-            "Default": "functionsendEmailArn"
+            "Default": "functionsubscriptionArn"
           }
         
           
@@ -45,16 +45,16 @@
         
         
         
-      "supportMessage": {
+      "subscription": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "supportMessage",
+          "Name": "subscription",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "supportMessage"
+              "title": "subscription"
             },
             "host": {
                 "Fn::Join": [
@@ -90,7 +90,7 @@
             ],
             "paths": {
               
-              "/sendEmail": {
+              "/checkout": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -176,7 +176,7 @@
                             
                             {
                                 
-                                "Ref": "functionsendEmailArn"
+                                "Ref": "functionsubscriptionArn"
                             },
                             
                             "/invocations"
@@ -189,7 +189,7 @@
                   }
                 }
               },
-              "/sendEmail/{proxy+}": {
+              "/checkout/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -275,7 +275,7 @@
                           
                           {
                             
-                            "Ref": "functionsendEmailArn"
+                            "Ref": "functionsubscriptionArn"
                           },
                           
                           "/invocations"
@@ -332,12 +332,12 @@
                   
         
         
-        "functionsendEmailPermissionsupportMessage": {
+        "functionsubscriptionPermissionsubscription": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionsendEmailName"
+                        "Ref":  "functionsubscriptionName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -356,7 +356,7 @@
                             },
                             ":",
                             {
-                                "Ref": "supportMessage"
+                                "Ref": "subscription"
                             },
                             "/*/*/*"
                         ]
@@ -367,7 +367,7 @@
         
         
         
-      "DeploymentAPIGWsupportMessage": {
+      "DeploymentAPIGWsubscription": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -381,7 +381,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "supportMessage"
+            "Ref": "subscription"
           }
         }
       }
@@ -389,15 +389,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "supportMessage"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "subscription"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "supportMessage"
+          "Value": "subscription"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "supportMessage"}
+          "Value": {"Ref": "subscription"}
         }
     }
   }

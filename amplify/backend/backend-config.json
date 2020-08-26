@@ -33,13 +33,13 @@
 		}
 	},
 	"api": {
-		"supportMessage": {
+		"subscription": {
 			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "sendEmail",
+					"resourceName": "subscription",
 					"attributes": [
 						"Name",
 						"Arn"
@@ -54,7 +54,7 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
 		},
-		"sendEmail": {
+		"subscription": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",
