@@ -220,6 +220,11 @@
     label {
         font-weight: 600;
     }
+    small {
+        display: block;
+        color: red; 
+        margin-top: 5px;
+    }
     textarea {
         width: 100%;
         background-color: #c4c4c4;

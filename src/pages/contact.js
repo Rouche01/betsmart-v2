@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API } from 'aws-amplify';
 import Notifications, {notify} from 'react-notify-toast';
 import styles from './contact.module.scss';
 import { navigate } from '@reach/router';
@@ -108,20 +107,6 @@ const Contact = (props) => {
     }
   }
 
-  const redirectToCheckout = async() => {
-    const fetchSession = async() => {
-      const apiName = 'subscription';
-      const apiEndpoint = '/checkout';
-      const body = {
-        email: 'richardemate@gmail.comc'
-      };
-      const session = await API.post(apiName, apiEndpoint, { body });
-      return session;
-    }
-    const session = await fetchSession();
-    console.log(session);
-  }
-
   return (
     <Layout>
       <Notifications options={{zIndex: 200, top: '20px'}} />
@@ -148,7 +133,7 @@ const Contact = (props) => {
                   <textarea placeholder="Message*" onChange={inputChange} name="message" id="message" />
                   { validationError.message && <small className={styles.small}>{validationError.message}</small> }
                 </div>
-                <input type="submit" className="mt-4" value="Send now" />
+                <input type="submit" className="mt-4" value={serverState.submitting ? 'Loading...' : 'Send Now'} />
               </form>
             </div>
           </div>
@@ -166,7 +151,6 @@ const Contact = (props) => {
               <FontAwesomeIcon color="#FF9900" className={["mr-3", "d-none", "d-md-inline-block", styles.locationIcon].join(' ')} icon={faMap} />
               <p> 13, Engineer Ogunduyile Str.<br/>Off Thomas Estate, Ajah<br/>Lagos, Lagos State.</p>
             </div>
-            <button onClick={redirectToCheckout}>Test paystack checkout</button>
           </div>
           <div className="container">
             <hr />

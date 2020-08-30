@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and limitations 
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
-var paystack = require('paystack-api')(process.env.PAYSTACK_TEST_KEY)
+var aws = require('aws-sdk');
 
 // declare a new express app
 var app = express()
@@ -26,36 +26,41 @@ app.use(function(req, res, next) {
   next()
 });
 
+var ses = new aws.SES({region: 'us-east-2'});
 
 
 /****************************
 * Example post method *
 ****************************/
 
-app.post('/checkout', async function(req, res) {
-  let amount;
-  if(req.body.plan === 'single') {
-    amount = 300000;
-    plan = 'PLN_k7gakczaf9blobl';
-  } else {
-    amount = 700000;
-    plan = 'PLN_tnsv9abtvbijaxz';
-  }
-  try {
-    const session = await paystack.transaction.initialize({
-      email: req.body.email,
-      amount: amount,
-      plan: plan,
-      transaction_charge: 5000
+app.post('/sendEmail', async function(req, res) {
+  // Add your code here
+  // res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  var params = {
+    Destination: {
+      ToAddresses: ['richardemate@gmail.com']
+    },
+    Message: {
+      Body: {
+        Text: {
+          Data: `Phone Number: ${req.body.supportNum}, Message: ${req.body.supportMsg}`
+        }
+      },
+      Subject: {
+        Data: req.body.supportSbj
+      }
+    },
+    Source: "admin@betsmart.com.ng"
+  };
 
-    });
-    console.log(session);
-    res.json(session);
-  } catch(error) {
-    res.json(error);
-    console.log(error);
+  try {
+    await ses.sendEmail(params).promise();
+    console.log('email sent');
+  } catch(err) {
+    console.log(err, 'This is an error');
   }
-})
+});
+
 
 
 app.listen(3000, function() {

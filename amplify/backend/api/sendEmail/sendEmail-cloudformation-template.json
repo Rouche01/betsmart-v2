@@ -14,29 +14,15 @@
         },
     
     
-          "functionsubscriptionName": {
+          "functionsendSupportMailName": {
             "Type": "String",
-            "Default": "functionsubscriptionName"
+            "Default": "functionsendSupportMailName"
           },
         
           
-          "functionsubscriptionArn": {
+          "functionsendSupportMailArn": {
             "Type": "String",
-            "Default": "functionsubscriptionArn"
-          },
-        
-          
-          
-    
-          "functionpaystackHookName": {
-            "Type": "String",
-            "Default": "functionpaystackHookName"
-          },
-        
-          
-          "functionpaystackHookArn": {
-            "Type": "String",
-            "Default": "functionpaystackHookArn"
+            "Default": "functionsendSupportMailArn"
           }
         
           
@@ -59,18 +45,16 @@
         
         
         
-        
-        
-      "subscription": {
+      "sendEmail": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "subscription",
+          "Name": "sendEmail",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "subscription"
+              "title": "sendEmail"
             },
             "host": {
                 "Fn::Join": [
@@ -106,7 +90,7 @@
             ],
             "paths": {
               
-              "/checkout": {
+              "/sendEmail": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -192,7 +176,7 @@
                             
                             {
                                 
-                                "Ref": "functionsubscriptionArn"
+                                "Ref": "functionsendSupportMailArn"
                             },
                             
                             "/invocations"
@@ -205,7 +189,7 @@
                   }
                 }
               },
-              "/checkout/{proxy+}": {
+              "/sendEmail/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -291,206 +275,7 @@
                           
                           {
                             
-                            "Ref": "functionsubscriptionArn"
-                          },
-                          
-                          "/invocations"
-                        ]
-                      ]
-                    },
-                    "passthroughBehavior": "when_no_match",
-                    "httpMethod": "POST",
-                    "type": "aws_proxy"
-                  }
-                }
-              },   
-              
-              "/webhook": {
-                "options": {
-                  "consumes": [
-                    "application/json"
-                  ],
-                  "produces": [
-                    "application/json"
-                  ],
-                  "responses": {
-                    "200": {
-                      "description": "200 response",
-                      "headers": {
-                        "Access-Control-Allow-Origin": {
-                          "type": "string"
-                        },
-                        "Access-Control-Allow-Methods": {
-                          "type": "string"
-                        },
-                        "Access-Control-Allow-Headers": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "x-amazon-apigateway-integration": {
-                    "responses": {
-                      "default": {
-                        "statusCode": "200",
-                        "responseParameters": {
-                          "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
-                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                          "method.response.header.Access-Control-Allow-Origin": "'*'"
-                        }
-                      }
-                    },
-                    "requestTemplates": {
-                      "application/json": "{\"statusCode\": 200}"
-                    },
-                    "passthroughBehavior": "when_no_match",
-                    "type": "mock"
-                  }
-                },
-                "x-amazon-apigateway-any-method": {
-                  "consumes": [
-                    "application/json"
-                  ],
-                  "produces": [
-                    "application/json"
-                  ],
-                  "parameters": [
-                    {
-                      "in": "body",
-                      "name": "RequestSchema",
-                      "required": false,
-                      "schema": {
-                        "$ref": "#/definitions/RequestSchema"
-                      }
-                    }
-                  ],
-                  "responses": {
-                    "200": {
-                      "description": "200 response",
-                      "schema": {
-                        "$ref": "#/definitions/ResponseSchema"
-                      }
-                    }
-                  },
-                  
-                  "x-amazon-apigateway-integration": {
-                    "responses": {
-                      "default": {
-                        "statusCode": "200"
-                      }
-                    },
-                    "uri": {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:apigateway:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":lambda:path/2015-03-31/functions/",
-                            
-                            {
-                                
-                                "Ref": "functionpaystackHookArn"
-                            },
-                            
-                            "/invocations"
-                          ]
-                        ]
-                      },
-                    "passthroughBehavior": "when_no_match",
-                    "httpMethod": "POST",
-                    "type": "aws_proxy"
-                  }
-                }
-              },
-              "/webhook/{proxy+}": {
-                "options": {
-                  "consumes": [
-                    "application/json"
-                  ],
-                  "produces": [
-                    "application/json"
-                  ],
-                  "responses": {
-                    "200": {
-                      "description": "200 response",
-                      "headers": {
-                        "Access-Control-Allow-Origin": {
-                          "type": "string"
-                        },
-                        "Access-Control-Allow-Methods": {
-                          "type": "string"
-                        },
-                        "Access-Control-Allow-Headers": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "x-amazon-apigateway-integration": {
-                    "responses": {
-                      "default": {
-                        "statusCode": "200",
-                        "responseParameters": {
-                          "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
-                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                          "method.response.header.Access-Control-Allow-Origin": "'*'"
-                        }
-                      }
-                    },
-                    "requestTemplates": {
-                      "application/json": "{\"statusCode\": 200}"
-                    },
-                    "passthroughBehavior": "when_no_match",
-                    "type": "mock"
-                  }
-                },
-                "x-amazon-apigateway-any-method": {
-                  "consumes": [
-                    "application/json"
-                  ],
-                  "produces": [
-                    "application/json"
-                  ],
-                  "parameters": [
-                    {
-                      "in": "body",
-                      "name": "RequestSchema",
-                      "required": false,
-                      "schema": {
-                        "$ref": "#/definitions/RequestSchema"
-                      }
-                    }
-                  ],
-                  "responses": {
-                    "200": {
-                      "description": "200 response",
-                      "schema": {
-                        "$ref": "#/definitions/ResponseSchema"
-                      }
-                    }
-                  },
-                  
-                  "x-amazon-apigateway-integration": {
-                    "responses": {
-                      "default": {
-                        "statusCode": "200"
-                      }
-                    },
-                    "uri": {
-                      "Fn::Join": [
-                        "",
-                        [
-                          "arn:aws:apigateway:",
-                          {
-                            "Ref": "AWS::Region"
-                          },
-                          ":lambda:path/2015-03-31/functions/",
-                          
-                          {
-                            
-                            "Ref": "functionpaystackHookArn"
+                            "Ref": "functionsendSupportMailArn"
                           },
                           
                           "/invocations"
@@ -547,12 +332,12 @@
                   
         
         
-        "functionsubscriptionPermissionsubscription": {
+        "functionsendSupportMailPermissionsendEmail": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionsubscriptionName"
+                        "Ref":  "functionsendSupportMailName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -571,41 +356,7 @@
                             },
                             ":",
                             {
-                                "Ref": "subscription"
-                            },
-                            "/*/*/*"
-                        ]
-                    ]
-                }
-            }
-        },
-        
-        
-        "functionpaystackHookPermissionsubscription": {
-            "Type": "AWS::Lambda::Permission",
-            "Properties": {
-                "FunctionName": 
-                    {
-                        "Ref":  "functionpaystackHookName"
-                    },
-                    
-                    "Action": "lambda:InvokeFunction",
-                "Principal": "apigateway.amazonaws.com",
-                "SourceArn": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:execute-api:",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                                "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                                "Ref": "subscription"
+                                "Ref": "sendEmail"
                             },
                             "/*/*/*"
                         ]
@@ -616,7 +367,7 @@
         
         
         
-      "DeploymentAPIGWsubscriptionfbaca731": {
+      "DeploymentAPIGWsendEmail": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -630,7 +381,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "subscription"
+            "Ref": "sendEmail"
           }
         }
       }
@@ -638,15 +389,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "subscription"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "sendEmail"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "subscription"
+          "Value": "sendEmail"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "subscription"}
+          "Value": {"Ref": "sendEmail"}
         }
     }
   }

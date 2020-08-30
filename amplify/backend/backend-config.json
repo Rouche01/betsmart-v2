@@ -44,6 +44,28 @@
 						"Name",
 						"Arn"
 					]
+				},
+				{
+					"category": "function",
+					"resourceName": "paystackHook",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"sendEmail": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "sendSupportMail",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
 				}
 			]
 		}
@@ -55,6 +77,18 @@
 			"service": "Lambda"
 		},
 		"subscription": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		},
+		"paystackHook": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		},
+		"sendSupportMail": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",

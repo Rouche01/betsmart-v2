@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
 import Logo from '../images/Betsmart-Logo.png';
 import LogoAlt from '../images/Betsmart-Logo-White.png';
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth, API } from 'aws-amplify';
 import { isLoggedIn } from '../utils/auth';
 import { navigate } from '@reach/router';
 import awsconfig from '../aws-exports';
@@ -64,6 +64,22 @@ const Register = (props) => {
     }
   }
 
+  const redirectToCheckout = async(customerEmail, plan) => {
+    const fetchSession = async(customerEmail, plan) => {
+      console.log('works');
+      const apiName = 'subscription';
+      const apiEndpoint = '/checkout';
+      const body = {
+        email: customerEmail,
+        plan: plan
+      };
+      const session = await API.post(apiName, apiEndpoint, { body });
+      return session;
+    }
+    const session = await fetchSession(customerEmail, plan);
+    return session;
+  }
+
   async function signUp(aEmail, aFName, aLName, aPassword, aPhone, aPricingPlan)  {
     setLoadingState(true);
     try {
@@ -79,14 +95,16 @@ const Register = (props) => {
     }
   }
 
-  const confirmSignup = async(username, authCode) => {
+  const confirmSignup = async(username, authCode, plan) => {
     setLoadingState(true);
     try {
       await Auth.confirmSignUp(username, authCode);
-      navigate('/login');
-      console.log('works')
+      // navigate('/login');
+      const paymentLink = await redirectToCheckout(username, plan);
       setLoadingState(false);
       setRegisterError('');
+      console.log(paymentLink.data.authorization_url);
+      navigate(paymentLink.data.authorization_url);
     } catch(err) {
       console.log('error in confirmation', err);
       setRegisterError(err.message);
@@ -131,7 +149,7 @@ const Register = (props) => {
   const handleConfirmation = e => {
     // console.log('works');
     e.preventDefault();
-    confirmSignup(email, confirmationCode);
+    confirmSignup(email, confirmationCode, pricingPlan);
   }
 
   return(
@@ -163,8 +181,8 @@ const Register = (props) => {
                     <label htmlFor="pricing-plan">Pricing Plan</label>
                     <select id="pricing-plan" onChange={inputChange} >
                       <option value="" selected disabled hidden>Choose Your Plan</option>
-                      <option value="single">Single Plan</option>
-                      <option value="combo">Combo Plan</option>
+                      <option value="single">Single Plan (N3,000 monthly)</option>
+                      <option value="combo">Combo Plan (N7,000 quarterly)</option>
                     </select>
                     { validationErrors.pricingPlan && <small>{validationErrors.pricingPlan}</small>}
                   </div>
@@ -174,7 +192,7 @@ const Register = (props) => {
                   <p className="mt-3" >Have an account? <Link to="/login">Log in</Link></p>
                 </React.Fragment>}
                 { signupStage === 1 && <React.Fragment>
-                  <h5 className="font-weight-bold mb-4">Enter the confirmation code sent to your email to validate your account</h5>
+                  <h5 className="font-weight-bold mb-4">Check your email for your confirmation code!</h5>
                   <Input type="text" nameAttr="confirmation-code" label="Confirmation Code" id="confirmation-code"
                     changed={inputChange} />
                   <button onClick={handleConfirmation}>Confirm

@@ -6,6 +6,13 @@
             "privacy": {
                 "open": true
             }
+        },
+        {
+            "name": "/webhook",
+            "lambdaFunction": "paystackHook",
+            "privacy": {
+                "open": true
+            }
         }
     ],
     "resourceName": "subscription",
@@ -13,6 +20,9 @@
     "functionArns": [
         {
             "lambdaFunction": "subscription"
+        },
+        {
+            "lambdaFunction": "paystackHook"
         }
     ],
     "privacy": {
@@ -29,6 +39,15 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "paystackHook",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "fbaca731"
 }

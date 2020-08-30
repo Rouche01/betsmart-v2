@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'gatsby';
 import { navigate } from '@reach/router'
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth, API } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import TipBox from './tipBox/tipBox';
 import Input from './input/input';
@@ -30,10 +30,12 @@ const TipDashboard = (props) => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [error, setError] = useState('');
+  const [supportErrors, setSupportErrors] = useState({});
   const [loadingState, setLoadingState] = useState(false);
   const [supportNumber, setSupportNumber] = useState('');
   const [supportSubject, setSupportSubject] = useState('');
   const [supportMessage, setSupportMessage] = useState('');
+  const [paymentStatus, setPaymentStatus] = useState('');
 
 
   useEffect(() => {
@@ -41,6 +43,12 @@ const TipDashboard = (props) => {
     setPhone(phoneNumber);
     setGender(user.gender);
   }, []);
+
+  useEffect(() => {
+    const currentUser = getCurrentUser();
+    console.log(currentUser['custom:payment-status']);
+    setPaymentStatus(currentUser['custom:payment-status'])
+  }, [])
 
   const genderRef = useRef();
 
@@ -202,6 +210,43 @@ const TipDashboard = (props) => {
     }
   }
 
+  const sendSupportMessage = async(e) => {
+    e.preventDefault();
+
+    const supportFields = { supportNumber, supportSubject, supportMessage };
+    const errorInit = {}
+
+    for(const key in supportFields) {
+      if(!supportFields[key]) {
+        errorInit[key] = "This field is required";
+      }
+    }
+
+    setSupportErrors(errorInit);
+
+    if(Object.entries(errorInit).length === 0) {
+      setLoadingState(true)
+      const apiName = 'sendEmail';
+      const apiEndpoint = '/sendEmail';
+      const user = getCurrentUser();
+      const body = {
+        destination: user.email,
+        supportMsg: supportMessage,
+        supportNum: supportNumber,
+        supportSbj: supportSubject
+      }
+      try {
+        await API.post(apiName, apiEndpoint, { body });
+        console.log('worked');
+        setLoadingState(false);
+      } catch(err) {
+        setLoadingState(false);
+        console.log('error', err);
+      }
+    }
+    
+  }
+
   return (
     <React.Fragment>
       <Notifications options={{zIndex: 200, top: '20px'}} />
@@ -309,18 +354,21 @@ const TipDashboard = (props) => {
                 <div className="row mt-4">
                   <div className="col-md-6">
                     <Input className="mb-3" type="text" nameAttr="support-number" label="Mobile Number" 
-                      id="support-number" changed={inputChange} />
+                      id="support-number" error={supportErrors.supportNumber} changed={inputChange} />
                   </div>
                   <div className="col-md-6">
                     <Input className="mb-3" type="text" nameAttr="support-subject" label="Subject" 
-                      id="support-subject" changed={inputChange} />
+                      id="support-subject" error={supportErrors.supportSubject} changed={inputChange} />
                   </div>
                   <div className={[styles.textareaInput, 'col-md-12'].join(' ')}>
                     <label htmlFor="support-message" >Message</label>
                     <textarea name="support-message" id="support-message" onChange={inputChange} />
+                    { supportErrors.supportMessage && <small>{supportErrors.supportMessage}</small>}
                   </div>
                 </div>
-                <button className="mt-4">Send Message</button>
+                <button onClick={sendSupportMessage} className="mt-4">Send Message
+                  <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                </button>
               </div>}
             </div>
           </div>
