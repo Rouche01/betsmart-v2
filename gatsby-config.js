@@ -29,6 +29,12 @@ module.exports = {
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "none"
       }
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: process.env.FACEBOOK_PIXEL_ID,
+      },
     }
   ],
 }
