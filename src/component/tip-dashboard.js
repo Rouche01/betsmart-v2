@@ -14,6 +14,8 @@ import awsconfig from '../aws-exports';
 import TipBox from './tipBox/tipBox';
 import Input from './input/input';
 import SEO from './seo';
+import BlockedEntry from './blockedEntry/blockedEntry';
+import OverlayPop from './overlayPop/overlayPop';
 Amplify.configure(awsconfig);
 
 
@@ -36,6 +38,7 @@ const TipDashboard = (props) => {
   const [supportSubject, setSupportSubject] = useState('');
   const [supportMessage, setSupportMessage] = useState('');
   const [paymentStatus, setPaymentStatus] = useState('');
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
 
   useEffect(() => {
@@ -45,9 +48,8 @@ const TipDashboard = (props) => {
   }, []);
 
   useEffect(() => {
-    const currentUser = getCurrentUser();
-    console.log(currentUser['custom:payment-status']);
-    setPaymentStatus(currentUser['custom:payment-status'])
+    console.log(user['custom:payment-status']);
+    setPaymentStatus(user['custom:payment-status'])
   }, [])
 
   const genderRef = useRef();
@@ -247,9 +249,33 @@ const TipDashboard = (props) => {
     
   }
 
+  const displayMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  }
+
+  const handleMobileMenuClick = (e) => {
+    if(e.target.id !== 'logout') {
+      changeDashboardState(e)
+    } else {
+      console.log(e.target.id);
+      handleLogout();
+    }
+  }
+
+
   return (
     <React.Fragment>
       <Notifications options={{zIndex: 200, top: '20px'}} />
+      <OverlayPop show={showMobileMenu} overlayClick={displayMobileMenu} menuClick={handleMobileMenuClick} >
+        {[
+          { menuName: `Today's Tips`, id: `home`}, 
+          { menuName: `Edit Profile`, id: `profile`}, 
+          { menuName: `Reset Password`, id: `password`},
+          { menuName: `Support`, id: `support`},
+          { menuName: `Logout`, id: `logout` }
+        ]}
+      </OverlayPop>
+      { paymentStatus === 'fail' && <BlockedEntry /> }
       <SEO title="Dashboard" />
       <div className={styles.tipDashboard}>
         <header>
@@ -259,7 +285,7 @@ const TipDashboard = (props) => {
             </Link>
             <ul>
               <li className={styles.dropdown}>
-                <button className={styles.profileBtn}>
+                <button onClick={displayMobileMenu} className={styles.profileBtn}>
                   <FontAwesomeIcon icon={faCog} className={styles.profileLink} />
                 </button>
                 <div>

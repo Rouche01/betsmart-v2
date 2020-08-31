@@ -14,8 +14,6 @@ var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var crypto = require('crypto')
 var secret = process.env.PAYSTACK_TEST_KEY
-// var paystack = require('paystack-api')(process.env.PAYSTACK_TEST_KEY)
-// const events = paystack.Events
 
 // declare a new express app
 var app = express()
@@ -29,9 +27,6 @@ app.use(function(req, res, next) {
   next()
 });
 
-// events.on("*", data => {
-//   console.log(data);
-// })
 
 const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({ apiVersion: '2016-04-18' });
 
@@ -54,6 +49,10 @@ app.post('/webhook', async function(req, res) {
           {
             Name: 'custom:payment-status',
             Value: 'success'
+          },
+          {
+            Name: 'custom:next-payment-date',
+            Value: event.data.next_payment_date
           }
         ],
         UserPoolId: 'us-east-2_fmgsuJCVd',
@@ -72,6 +71,10 @@ app.post('/webhook', async function(req, res) {
           {
             Name: 'custom:payment-status',
             Value: 'fail'
+          },
+          {
+            Name: 'custom:next-payment-date',
+            Value: ''
           }
         ],
         UserPoolId: 'us-east-2_fmgsuJCVd',

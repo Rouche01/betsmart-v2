@@ -1,0 +1,41 @@
+.overlay {
+    display: none;
+}
+
+@media screen and (max-width: 499px) {
+    .overlay {
+        display: none;
+        font-family: 'Poppins', sans-serif;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 250;
+    }
+    &.show-menu {
+        display: flex;
+    }
+    .pop {
+        background-color: #fff;
+        width: 80%;
+        border-radius: 3px;
+        padding: 12px 0 0;
+        ul {
+            list-style-type: none;
+            text-align: center;
+            padding-inline-start: 0;
+            li {
+                font-size: 17px;
+                font-weight: 600;
+                border-bottom: 1px solid rgba(51, 51, 51, 0.28);
+                &:last-child {
+                    border-bottom: none;
+                    color: red;
+                }
+            }
+        }
+    }
+}

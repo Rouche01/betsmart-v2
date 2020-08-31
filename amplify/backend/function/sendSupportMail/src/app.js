@@ -54,7 +54,7 @@ app.post('/sendEmail', async function(req, res) {
   };
 
   try {
-    await ses.sendEmail(params).promise();
+    await ses.sendEmail(params);
     console.log('email sent');
   } catch(err) {
     console.log(err, 'This is an error');

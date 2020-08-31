@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
+import Notifications, {notify} from 'react-notify-toast';
 import { setUser, isLoggedIn } from '../utils/auth';
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from '../aws-exports';
@@ -17,6 +18,11 @@ const Login = (props) => {
   const [loadingState, setLoadingState] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
   const [windowSize, setWindowSize] = useState();
+  const [forgetPwd, setForgetPwd] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
+  const [confirmCode, setConfirmCode] = useState('');
+  const [resetEmail, setResetEmail] = useState();
+  const [newPassword, setNewPassword] = useState();
 
   useEffect(() => {
     const getWindowSize = window.innerWidth;
@@ -36,6 +42,15 @@ const Login = (props) => {
         break;
       case 'password':
         setPassword(e.target.value);
+        break;
+      case 'reset-email':
+        setResetEmail(e.target.value);
+        break;
+      case 'reset-code':
+        setConfirmCode(e.target.value);
+        break;
+      case 'new-password':
+        setNewPassword(e.target.value);
         break;
       default:
         break;
@@ -88,6 +103,56 @@ const Login = (props) => {
     }
   }
 
+  const handlePasswordReset = () => {
+    setForgetPwd(true);
+  }
+
+  const passwordResetHandler = async() => {
+    setLoadingState(true)
+    if(resetEmail) {
+      try {
+        console.log(resetEmail);
+        await Auth.forgotPassword(resetEmail);
+        setLoginError(null);
+        setLoadingState(false);
+        setConfirmReset(true);
+      } catch(err) {
+        setLoginError(err.message);
+        setLoadingState(false);
+      }
+    } else {
+      setLoginError('This field is required');
+      setLoadingState(false);
+    }
+  }
+
+  const confirmPasswordReset = async() => {
+    console.log('works');
+    setLoadingState(true);
+    try {
+      await Auth.forgotPasswordSubmit(resetEmail, confirmCode, newPassword);
+      setLoadingState(false);
+      setConfirmReset(false);
+      setForgetPwd(false);
+      notify.show("Password reset successful!", "success");
+    } catch(err) {
+      setLoadingState(false);
+      const errMsg = err.message.split(':');
+      const msgIdx = errMsg.length - 1;
+      console.log(errMsg[msgIdx]);
+      notify.show(`Unable to reset password, ${errMsg[msgIdx]}`, "error");
+    }
+  }
+
+  const resendCode = async() => {
+    try {
+      await Auth.forgotPassword(resetEmail);
+      notify.show("A new confirmation code has been sent to your email", "success");
+    } catch(err) {
+      notify.show("Unable to send a confirmation code, try again", "error");
+    }
+  }
+
   return(
     <React.Fragment>
       <SEO title="Login" />
@@ -95,21 +160,52 @@ const Login = (props) => {
         <div className="row">
           <div className={["col-md-4", 'order-md-1', 'order-2', styles.loginForm].join(' ')}>
             <Link to="/"><img src={windowSize > 500 ? Logo : LogoAlt} alt="Betsmart logo" /></Link>
-            <h3 className="mt-5">Welcome back, Log in</h3>
-            <div className="mt-4">
-              { loginError && <p className={styles.loginError}>{loginError}</p>}
-              <Input type="email" nameAttr="email" label="Email Address" id="email" 
-                changed={inputChange} error={validationErrors.email} />
-              <Input type="password" nameAttr="password" label="Password" id="password" 
-                changed={inputChange} error={validationErrors.password} />
-              <button onClick={onSubmit} >Log in
-                  <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
-                </button>
-            </div>
-            <p className="mt-3" >Don’t have an account? <Link to="/register">Register</Link></p>
+            { !forgetPwd && <React.Fragment>
+              <h3 className="mt-5">Welcome back, Log in</h3>
+              <div className="mt-4">
+                { loginError && <p className={styles.loginError}>{loginError}</p>}
+                <Input type="email" nameAttr="email" label="Email Address" id="email" 
+                  changed={inputChange} error={validationErrors.email} />
+                <Input type="password" nameAttr="password" label="Password" id="password" 
+                  changed={inputChange} error={validationErrors.password} />
+                <button onClick={onSubmit} >Log in
+                    <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                  </button>
+                  <p onClick={handlePasswordReset} className={styles.forgotPwd}>Forgot Password?</p>
+              </div>
+              <p className="mt-3" >Don’t have an account? <Link to="/register">Register</Link></p>
+            </React.Fragment>}
+            { forgetPwd && <React.Fragment>
+              <h3 className="mt-5">Reset your password</h3>
+              { !confirmReset && <React.Fragment>
+                <small className="mt-3">To reset your password, enter your email below and submit. An email will be sent to you with instructions about how to complete the process.</small>
+                <div className="mt-4">
+                  <Input type="email" className nameAttr="reset-email" label="Email Address" id="reset-email" 
+                  changed={inputChange} error={loginError} />
+                  <button onClick={passwordResetHandler} >Reset Password
+                      <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                  </button>
+                </div>
+              </React.Fragment>}
+              { confirmReset && <React.Fragment>
+                <Notifications options={{zIndex: 200, top: '20px'}} />
+                <small className="mt-3">Please check your email inbox for a confirmation code to complete the reset.</small>
+                <div className="mt-4">
+                  { loginError && <p className={styles.loginError}>{loginError}</p> }
+                  <Input type="text" className nameAttr="reset-code" label="Confirmation Code"
+                    id="reset-code" changed={inputChange}  />
+                  <Input type="password" className nameAttr="new-password" label="New Password"
+                    id="new-password" changed={inputChange} />
+                  <button onClick={confirmPasswordReset} >Confirm Reset
+                      <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                  </button>
+                  <p onClick={resendCode} className={styles.resendCode}>Resend code</p>
+                </div>
+              </React.Fragment>}
+            </React.Fragment> }
           </div>
           <div className={["col-md-8", 'order-md-2', 'order-1', styles.bleedImage].join(' ')}>
-
+            
           </div>
         </div>
       </div>

@@ -346,6 +346,12 @@
     .billing-date {
         font-size: 17px;
     }
+
+    .dropdown {
+        &:hover div {
+            display: none;
+        }
+    }
 }
 
 
