@@ -1,0 +1,15 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "betsmartae0f5c9b",
+  "functionName": "betsmartae0f5c9bPreSignup",
+  "resourceName": "betsmartae0f5c9bPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\Users\\User\\AppData\\Roaming\\nvm\\v13.7.0\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\utils/../triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "roleName": "betsmartae0f5c9bPreSignup",
+  "skipEdit": true
+}

@@ -12,19 +12,20 @@
             "AmplifyAppId": "d24jeony3hkip0"
         },
         "categories": {
-            "auth": {
-                "betsmart3c0d3fd2": {}
-            },
-            "function": {
-                "betsmart3c0d3fd2PostConfirmation": {
-                    "GROUP": "single"
-                }
-            },
             "hosting": {
                 "amplifyhosting": {
                     "appId": "d24jeony3hkip0",
                     "type": "cicd"
                 }
+            },
+            "auth": {
+                "betsmartae0f5c9b": {}
+            },
+            "function": {
+                "betsmartae0f5c9bPostConfirmation": {
+                    "GROUP": "combo"
+                },
+                "betsmartae0f5c9bPreSignup": {}
             }
         }
     }

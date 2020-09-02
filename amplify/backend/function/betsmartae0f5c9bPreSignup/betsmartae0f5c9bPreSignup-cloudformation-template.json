@@ -2,7 +2,11 @@
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
 	"Parameters": {
-		"GROUP": {
+		"DOMAINBLACKLIST": {
+			"Type": "String",
+			"Default": ""
+		},
+		"DOMAINWHITELIST": {
 			"Type": "String",
 			"Default": ""
 		},
@@ -61,12 +65,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"betsmart3c0d3fd2PostConfirmation",
+						"betsmartae0f5c9bPreSignup",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"betsmart3c0d3fd2PostConfirmation",
+									"betsmartae0f5c9bPreSignup",
 									"-",
 									{
 										"Ref": "env"
@@ -87,8 +91,11 @@
 						"REGION": {
 							"Ref": "AWS::Region"
 						},
-						"GROUP": {
-							"Ref": "GROUP"
+						"DOMAINWHITELIST": {
+							"Ref": "DOMAINWHITELIST"
+						},
+						"DOMAINBLACKLIST": {
+							"Ref": "DOMAINBLACKLIST"
 						}
 					}
 				},
@@ -102,7 +109,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-betsmart-dev-135909-deployment",
-					"S3Key": "amplify-builds/betsmart3c0d3fd2PostConfirmation-342f326a73706741704e-build.zip"
+					"S3Key": "amplify-builds/betsmartae0f5c9bPreSignup-79796653716931504c42-build.zip"
 				}
 			}
 		},
@@ -112,12 +119,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"betsmart3c0d3fd2PostConfirmation",
+						"betsmartae0f5c9bPreSignup",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"betsmart3c0d3fd2PostConfirmation",
+									"betsmartae0f5c9bPreSignup",
 									"-",
 									{
 										"Ref": "env"

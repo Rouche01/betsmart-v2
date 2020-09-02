@@ -44,29 +44,29 @@ export default function Home({data}) {
       <div className={styles.hero}>
         <div className={[styles.heroContent, 'text-center', 'text-white'].join(' ')}>
           <h1>We are the <span style={{color: "#FF9900"}}>King</span> of Betting Odds</h1>
-          <p className="mt-4">Win more money on your Sport Bettings. <br/> Cheaper plans, Money back guarantee & 93% Odds Accuracy.</p>
+          <p className="mt-4">Win more money on your Sport Bettings. <br/> Cheaper plans, Money back guarantee & 90% Odds Accuracy.</p>
           <Link to="/register"><button className="mt-4">Get Started</button></Link>
         </div>
       </div>
       <div className={styles.moreInfo}>
         <div className="container">
           <h2>Learn a bit more<span style={{color: "#FF9900"}}>...</span></h2>
-          <p className={styles.mainInfo}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+          <p className={styles.mainInfo}><strong>Do you want to make more money on sports betting and lose wayyyyy less?</strong> With <em>Betsmart</em>, you get a low cost membership service that provides you with daily betting tips of over 5 odds, focused on all sports around the world including local leagues that can make you fortunes.</p>
           <div className="row mt-5">
             <div className={[styles.iconInfoGroup, 'col-md-4', 'mb-3', 'mb-md-0'].join(' ')}>
               <img src={calendarIcon} alt="Daily odds" />
               <h4 className="mt-2 mt-md-3" >Daily Odds</h4>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+              <p>Daily access to bet tips of over 5 odds from soccer leagues all around the world.</p>
             </div>
             <div className={[styles.iconInfoGroup, 'col-md-4', 'mb-3', 'mb-md-0'].join(' ')}>
               <img src={checkIcon} alt="90% Accuracy" />
               <h4 className="mt-2 mt-md-3" >90% Accuracy</h4>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+              <p>With our tips, we are certain your winnings will be considerably more than your losses.</p>
             </div>
             <div className={[styles.iconInfoGroup, 'col-md-4'].join(' ')}>
               <img src={dollarIcon} alt="Cheaper plans" />
               <h4 className="mt-2 mt-md-3" >Cheaper Plans</h4>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+              <p>Our subscription plans are at a low cost, at the very least you're sure to earn back your money. </p>
             </div>
           </div>
         </div>

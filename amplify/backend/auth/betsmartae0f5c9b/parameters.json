@@ -1,6 +1,6 @@
 {
-    "resourceNameTruncated": "betsma3c0d3fd2",
-    "userPoolName": "betsmart3c0d3fd2_userpool_3c0d3fd2",
+    "resourceNameTruncated": "betsmaae0f5c9b",
+    "userPoolName": "betsmartae0f5c9b_userpool_ae0f5c9b",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -26,10 +26,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "betsma3c0d3fd2_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "betsmaae0f5c9b_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "3c0d3fd2",
-    "resourceName": "betsmart3c0d3fd2",
+    "sharedId": "ae0f5c9b",
+    "resourceName": "betsmartae0f5c9b",
     "authSelections": "userPoolOnly",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,14 +47,20 @@
     "usernameAttributes": [
         "email"
     ],
-    "userPoolGroupList": [
-        "single",
-        "combo"
-    ],
+    "userPoolGroupList": [],
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "betsmart3c0d3fd2PostConfirmation",
+            "resourceName": "betsmartae0f5c9bPostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "betsmartae0f5c9bPreSignup",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",
@@ -64,7 +70,7 @@
     ],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": "{\"PostConfirmation\":[\"add-to-group\"]}",
+    "triggers": "{\"PostConfirmation\":[\"add-to-group\"],\"PreSignup\":[\"custom\"]}",
     "hostedUI": false,
     "parentStack": {
         "Ref": "AWS::StackId"

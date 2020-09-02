@@ -134,12 +134,11 @@ const Login = (props) => {
       setLoadingState(false);
       setConfirmReset(false);
       setForgetPwd(false);
-      notify.show("Password reset successful!", "success");
+      notify.show("Password updated successfully!", "success");
     } catch(err) {
       setLoadingState(false);
       const errMsg = err.message.split(':');
       const msgIdx = errMsg.length - 1;
-      console.log(errMsg[msgIdx]);
       notify.show(`Unable to reset password, ${errMsg[msgIdx]}`, "error");
     }
   }
@@ -156,6 +155,7 @@ const Login = (props) => {
   return(
     <React.Fragment>
       <SEO title="Login" />
+      <Notifications options={{zIndex: 200, top: '20px'}} />
       <div className={styles.loginContainer}>
         <div className="row">
           <div className={["col-md-4", 'order-md-1', 'order-2', styles.loginForm].join(' ')}>
@@ -188,7 +188,6 @@ const Login = (props) => {
                 </div>
               </React.Fragment>}
               { confirmReset && <React.Fragment>
-                <Notifications options={{zIndex: 200, top: '20px'}} />
                 <small className="mt-3">Please check your email inbox for a confirmation code to complete the reset.</small>
                 <div className="mt-4">
                   { loginError && <p className={styles.loginError}>{loginError}</p> }

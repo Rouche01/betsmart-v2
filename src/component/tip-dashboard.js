@@ -24,6 +24,10 @@ const TipDashboard = (props) => {
   const plan = user['custom:user-type'];
   const formattedPlan = plan.charAt(0).toUpperCase() + plan.slice(1);
   const phoneNumber = `0${user.phone_number.slice(4)}`;
+  let date = user['custom:next-payment-date'];
+  date = new Date(date);
+  date = date.toDateString();
+
 
   const [dashboardState, setDashboardState] = useState('home');
   const [gender, setGender] = useState('');
@@ -319,7 +323,7 @@ const TipDashboard = (props) => {
                 <p style={{color: "#FF9900"}} >{formattedPlan} Plan</p>
                 <hr />
                 <p className={styles.billingTitle} >Next Billing</p>
-                <p className={styles.billingDate}>22-08-2020</p>
+                <p className={styles.billingDate}>{date}</p>
               </div>
             </div>
             <div className="col-md-7 mt-md-0 mt-4">

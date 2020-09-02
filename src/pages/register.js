@@ -24,8 +24,8 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [pricingPlan, setPricingPlan] = useState('');
-  const [confirmationCode, setConfirmationCode] = useState('');
-  const [signupStage, setSignupStage] = useState(0);
+  // const [confirmationCode, setConfirmationCode] = useState('');
+  // const [signupStage, setSignupStage] = useState(0);
   const [registerError, setRegisterError] = useState('');
   const [loadingState, setLoadingState] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
@@ -56,9 +56,9 @@ const Register = (props) => {
       case 'pricing-plan':
         setPricingPlan(e.target.options[e.target.selectedIndex].value);
         break;
-      case 'confirmation-code':
-        setConfirmationCode(e.target.value);
-        break;
+      // case 'confirmation-code':
+      //   setConfirmationCode(e.target.value);
+      //   break;
       default:
         break;
     }
@@ -84,10 +84,12 @@ const Register = (props) => {
     setLoadingState(true);
     try {
       await Auth.signUp({username: aEmail, password: aPassword, attributes: { email: aEmail, phone_number: aPhone, given_name: aFName, family_name: aLName, gender: 'rather not say', 'custom:user-type': aPricingPlan} })
-      setSignupStage(1);
+      // setSignupStage(1);
+      const paymentLink = await redirectToCheckout(aEmail, aPricingPlan);
       console.log('Working');
       setLoadingState(false);
       setRegisterError('');
+      navigate(paymentLink.data.authorization_url);
     } catch(error) {
       setRegisterError(error.message);
       console.log('There was an error signing up', error);
@@ -95,22 +97,22 @@ const Register = (props) => {
     }
   }
 
-  const confirmSignup = async(username, authCode, plan) => {
-    setLoadingState(true);
-    try {
-      await Auth.confirmSignUp(username, authCode);
-      // navigate('/login');
-      const paymentLink = await redirectToCheckout(username, plan);
-      setLoadingState(false);
-      setRegisterError('');
-      console.log(paymentLink.data.authorization_url);
-      navigate(paymentLink.data.authorization_url);
-    } catch(err) {
-      console.log('error in confirmation', err);
-      setRegisterError(err.message);
-      setLoadingState(false);
-    }
-  }
+  // const confirmSignup = async(username, authCode, plan) => {
+  //   setLoadingState(true);
+  //   try {
+  //     await Auth.confirmSignUp(username, authCode);
+  //     // navigate('/login');
+  //     const paymentLink = await redirectToCheckout(username, plan);
+  //     setLoadingState(false);
+  //     setRegisterError('');
+  //     console.log(paymentLink.data.authorization_url);
+  //     navigate(paymentLink.data.authorization_url);
+  //   } catch(err) {
+  //     console.log('error in confirmation', err);
+  //     setRegisterError(err.message);
+  //     setLoadingState(false);
+  //   }
+  // }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -146,11 +148,11 @@ const Register = (props) => {
     // fields = {};
   }
 
-  const handleConfirmation = e => {
-    // console.log('works');
-    e.preventDefault();
-    confirmSignup(email, confirmationCode, pricingPlan);
-  }
+  // const handleConfirmation = e => {
+  //   // console.log('works');
+  //   e.preventDefault();
+  //   confirmSignup(email, confirmationCode, pricingPlan);
+  // }
 
   return(
     <React.Fragment>
@@ -166,7 +168,7 @@ const Register = (props) => {
               <h3 className="mt-5">Create Your Account</h3>
               <form className="mt-4">
                 { registerError && <p className={styles.registerError}>{registerError}</p>}
-                { signupStage === 0 && <React.Fragment>
+                <React.Fragment>
                   <Input type="email" nameAttr="email" label="Email Address" id="email" 
                     changed={inputChange} error={validationErrors.email} />
                   <Input type="text" nameAttr="fname" label="First Name" id="fname" 
@@ -190,15 +192,15 @@ const Register = (props) => {
                     <span className={loadingState ? [styles.isLoading, styles.btnRegLoader].join(' ') : styles.btnRegLoader}><i>Loading...</i></span>
                   </button>
                   <p className="mt-3" >Have an account? <Link to="/login">Log in</Link></p>
-                </React.Fragment>}
-                { signupStage === 1 && <React.Fragment>
+                </React.Fragment>
+                {/* { signupStage === 1 && <React.Fragment>
                   <h5 className="font-weight-bold mb-4">Check your email for your confirmation code!</h5>
                   <Input type="text" nameAttr="confirmation-code" label="Confirmation Code" id="confirmation-code"
                     changed={inputChange} />
                   <button onClick={handleConfirmation}>Confirm
                     <span className={loadingState ? [styles.isLoading, styles.btnRegLoader].join(' ') : styles.btnRegLoader}><i>Loading...</i></span>
                   </button>
-                </React.Fragment>}
+                </React.Fragment>} */}
               </form>
             </div>
           </div>
