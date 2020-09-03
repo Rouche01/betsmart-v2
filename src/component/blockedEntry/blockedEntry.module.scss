@@ -101,7 +101,7 @@
 @media only screen and (max-width: 499px) {
     .blocked-entry {
         display: block;
-        padding-top: 50px;
+        padding-top: 100px;
         h2 {
             font-size: 32px;
         }
@@ -112,6 +112,16 @@
         p {
             font-size: 17px;
         }
+    }
+    .btn {
+        display: block;
+        width: 85%;
+        margin: 0 auto;
+    }
+    .btn-outline {
+        display: block;
+        width: 85%;
+        margin: 0 auto;
     }
 }
 

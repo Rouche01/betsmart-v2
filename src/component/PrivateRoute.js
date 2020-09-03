@@ -10,7 +10,6 @@ class PrivateRoute extends React.Component {
             navigate(`/login`)
             return null;
         }
-        console.log(isLoggedIn());
         return <Component {...rest} />
     }
 }

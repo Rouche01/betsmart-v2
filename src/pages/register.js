@@ -96,6 +96,7 @@ const Register = (props) => {
         contentType: "application/json; charset=utf-8",
         error: (error) => {
           console.log('Error', error);
+          setLoadingState(false);
         },
         success: async(res) => {
           console.log('success');

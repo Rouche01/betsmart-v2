@@ -69,7 +69,7 @@ const BlockedEntry = (props) => {
           <button onClick={unlockAccess} className={[styles.btn, 'mt-3'].join(' ')}>Unlock Access
             <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
           </button>
-          <button onClick={logoutHandler} className={[styles.btnOutline, 'mt-3', 'ml-0', 'ml-md-3'].join(' ')}>Logout</button>
+          <button onClick={logoutHandler} className={[styles.btnOutline, 'mt-3', 'ml-md-3'].join(' ')}>Logout</button>
         </div>
       </div>
     </React.Fragment>

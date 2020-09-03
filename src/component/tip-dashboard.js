@@ -20,7 +20,21 @@ Amplify.configure(awsconfig);
 
 
 const TipDashboard = (props) => {
-  const user = getCurrentUser();
+
+  let user = getCurrentUser();
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser().then(res => {
+      console.log(res.attributes);
+      if (user !== res.attributes) {
+        setUser(res.attributes);
+        user = res.attributes
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+  }, [])
+
   const plan = user['custom:user-type'];
   const formattedPlan = plan.charAt(0).toUpperCase() + plan.slice(1);
   const phoneNumber = `0${user.phone_number.slice(4)}`;
@@ -52,12 +66,9 @@ const TipDashboard = (props) => {
     setEmail(user.email);
     setPhone(phoneNumber);
     setGender(user.gender);
-  }, []);
-
-  useEffect(() => {
     console.log(user['custom:payment-status']);
     setPaymentStatus(user['custom:payment-status'])
-  }, [])
+  }, []);
 
   const genderRef = useRef();
 
@@ -283,7 +294,7 @@ const TipDashboard = (props) => {
           { menuName: `Logout`, id: `logout` }
         ]}
       </OverlayPop>
-      { paymentStatus === 'fail' || !paymentStatus && <BlockedEntry /> }
+      { paymentStatus === 'fail' || paymentStatus === undefined && <BlockedEntry /> }
       <SEO title="Dashboard" />
       <div className={styles.tipDashboard}>
         <header>
