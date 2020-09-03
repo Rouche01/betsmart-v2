@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './blockedEntry.module.scss';
 import { getCurrentUser, logout, setUser } from '../../utils/auth';
+import Notifications, {notify} from 'react-notify-toast';
 import { API, Auth } from 'aws-amplify';
 import { navigate } from '@reach/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,7 +42,8 @@ const BlockedEntry = (props) => {
       navigate(paymentInfo.data.authorization_url);
     } catch(err) {
       setLoadingState(false);
-      console.log(err);
+      // console.log(err);
+      notify.show("Unable to unlock access at the moment, try again")
     }
   }
 
@@ -53,21 +55,24 @@ const BlockedEntry = (props) => {
   }
 
   return(
-    <div className={styles.blockedEntry}>
-      <div>
-        { paymentError && <small>{paymentError}</small> }
-        <h2>{user.given_name} {user.family_name}</h2>
-        <p className={styles.planName}>{formattedPlan} Plan</p>
-        <div className={[styles.blockedInfo, 'mt-3'].join(' ')}>
-          <FontAwesomeIcon color="#FF9900" className="fa-2x" icon={faLock} />
-          <p>You do not have access to the dashboard yet, you need to make payment to unlock access</p>
+    <React.Fragment>
+      <Notifications options={{zIndex: 200, top: '20px'}} />
+      <div className={styles.blockedEntry}>
+        <div>
+          { paymentError && <small>{paymentError}</small> }
+          <h2>{user.given_name} {user.family_name}</h2>
+          <p className={styles.planName}>{formattedPlan} Plan</p>
+          <div className={[styles.blockedInfo, 'mt-3'].join(' ')}>
+            <FontAwesomeIcon color="#FF9900" className="fa-2x" icon={faLock} />
+            <p>You do not have access to the dashboard yet, you need to make payment to unlock access</p>
+          </div>
+          <button onClick={unlockAccess} className={[styles.btn, 'mt-3'].join(' ')}>Unlock Access
+            <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+          </button>
+          <button onClick={logoutHandler} className={[styles.btnOutline, 'mt-3', 'ml-0', 'ml-md-3'].join(' ')}>Logout</button>
         </div>
-        <button onClick={unlockAccess} className={[styles.btn, 'mt-3'].join(' ')}>Unlock Access
-          <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
-        </button>
-        <button onClick={logoutHandler} className={[styles.btnOutline, 'mt-3', 'ml-0', 'ml-md-3'].join(' ')}>Logout</button>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 

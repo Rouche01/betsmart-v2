@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './termsPlusPrivacy.module.scss';
+import SEO from '../component/seo';
 import Header from '../component/header/header';
 
 const TermsConditions = (props) => {
   return(
     <React.Fragment>
+      <SEO title="Terms & Conditions" />
       <Header />
       <div className={styles.hero}>
 

@@ -25,9 +25,11 @@ const TipDashboard = (props) => {
   const formattedPlan = plan.charAt(0).toUpperCase() + plan.slice(1);
   const phoneNumber = `0${user.phone_number.slice(4)}`;
   let date = user['custom:next-payment-date'];
-  date = new Date(date);
-  date = date.toISOString().split('T');
-  date = date[0];
+  if(date) {
+    date = new Date(date);
+    date = date.toISOString().split('T');
+    date = date[0];
+  }
 
 
   const [dashboardState, setDashboardState] = useState('home');
@@ -281,7 +283,7 @@ const TipDashboard = (props) => {
           { menuName: `Logout`, id: `logout` }
         ]}
       </OverlayPop>
-      { paymentStatus === 'fail' && <BlockedEntry /> }
+      { paymentStatus === 'fail' || !paymentStatus && <BlockedEntry /> }
       <SEO title="Dashboard" />
       <div className={styles.tipDashboard}>
         <header>

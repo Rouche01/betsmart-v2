@@ -104,6 +104,7 @@ const Login = (props) => {
   }
 
   const handlePasswordReset = () => {
+    setLoginError(null);
     setForgetPwd(true);
   }
 
