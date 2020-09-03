@@ -69,7 +69,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-betsmart-dev-135909-deployment",
-					"S3Key": "amplify-builds/paystackHook-34396663334239534362-build.zip"
+					"S3Key": "amplify-builds/paystackHook-6e366c6141315a683164-build.zip"
 				}
 			}
 		},

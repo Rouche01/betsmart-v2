@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
+import $ from 'jquery';
 import Logo from '../images/Betsmart-Logo.png';
 import LogoAlt from '../images/Betsmart-Logo-White.png';
 import Amplify, { Auth, API } from 'aws-amplify';
@@ -38,19 +39,19 @@ const Register = (props) => {
 
   const inputChange = (e) => {
     switch(e.target.id) {
-      case 'email':
+      case 'mce-EMAIL':
         setEmail(e.target.value);
         break;
-      case 'fname':
+      case 'mce-FNAME':
         setFName(e.target.value);
         break;
-      case 'lname':
+      case 'mce-LNAME':
         setLName(e.target.value);
         break;
       case 'password':
         setPassword(e.target.value);
         break;
-      case 'phone':
+      case 'mce-PHONE':
         setPhone(e.target.value);
         break;
       case 'pricing-plan':
@@ -85,11 +86,25 @@ const Register = (props) => {
     try {
       await Auth.signUp({username: aEmail, password: aPassword, attributes: { email: aEmail, phone_number: aPhone, given_name: aFName, family_name: aLName, gender: 'rather not say', 'custom:user-type': aPricingPlan} })
       // setSignupStage(1);
-      const paymentLink = await redirectToCheckout(aEmail, aPricingPlan);
-      console.log('Working');
-      setLoadingState(false);
-      setRegisterError('');
-      navigate(paymentLink.data.authorization_url);
+      const url = `https://betsmart.us17.list-manage.com/subscribe/post-json?u=f7b9d825296b4a41bba8f6876&amp;id=fa61327c16&c=?`
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: $('#mc-embedded-subscribe-form').serialize(),
+        cache: false,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        error: (error) => {
+          console.log('Error', error);
+        },
+        success: async(res) => {
+          console.log('success');
+          const paymentLink = await redirectToCheckout(aEmail, aPricingPlan);
+          setLoadingState(false);
+          setRegisterError('');
+          navigate(paymentLink.data.authorization_url);
+        }
+      })
     } catch(error) {
       setRegisterError(error.message);
       console.log('There was an error signing up', error);
@@ -119,6 +134,8 @@ const Register = (props) => {
 
     let validMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    let validPhoneNumber = /^[0]\d{10}$/;
+
     let fields = {email, fName, lName, password, phone, pricingPlan};
     const errorsInit = {}
     for(const key in fields) {
@@ -127,6 +144,9 @@ const Register = (props) => {
       }
       if(fields.email && !fields.email.match(validMail)) {
         errorsInit.email = "Email is invalid";
+      }
+      if(fields.phone && !fields.phone.match(validPhoneNumber)) {
+        errorsInit.phone = "Phone number is invalid";
       }
       if(fields.password && fields.password.length < 6) {
         errorsInit.password = "Password must be at least 6 characters"
@@ -166,18 +186,18 @@ const Register = (props) => {
             <div className={styles.registerForm}>
               <Link to="/"><img src={ windowSize > 500 ? Logo : LogoAlt } alt="Betsmart logo" /></Link>
               <h3 className="mt-5">Create Your Account</h3>
-              <form className="mt-4">
+              <form id="mc-embedded-subscribe-form" className="mt-4">
                 { registerError && <p className={styles.registerError}>{registerError}</p>}
                 <React.Fragment>
-                  <Input type="email" nameAttr="email" label="Email Address" id="email" 
+                  <Input type="email" nameAttr="EMAIL" label="Email Address" id="mce-EMAIL" 
                     changed={inputChange} error={validationErrors.email} />
-                  <Input type="text" nameAttr="fname" label="First Name" id="fname" 
+                  <Input type="text" nameAttr="FNAME" label="First Name" id="mce-FNAME" 
                     changed={inputChange} error={validationErrors.fName} />
-                  <Input type="text" nameAttr="lname" label="Last Name" id="lname" 
+                  <Input type="text" nameAttr="LNAME" label="Last Name" id="mce-LNAME" 
                     changed={inputChange} error={validationErrors.lName} />
                   <Input type="password" nameAttr="password" label="Password" id="password" 
                     changed={inputChange} error={validationErrors.password} />
-                  <Input type="number" nameAttr="phone" label="Phone" id="phone" 
+                  <Input type="number" nameAttr="PHONE" label="Phone" id="mce-PHONE" 
                     changed={inputChange} error={validationErrors.phone} />
                   <div className={styles.selectInput}>
                     <label htmlFor="pricing-plan">Pricing Plan</label>

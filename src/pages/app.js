@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate, Router } from '@reach/router';
+import { Router } from '@reach/router';
 import PrivateRoute from '../component/PrivateRoute';
 import TipDashboard from '../component/tip-dashboard';
 

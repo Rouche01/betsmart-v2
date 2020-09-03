@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"sendSupportMail",
+						"sendSupportEmail",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"sendSupportMail",
+									"sendSupportEmail",
 									"-",
 									{
 										"Ref": "env"
@@ -69,7 +69,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-betsmart-dev-135909-deployment",
-					"S3Key": "amplify-builds/sendSupportMail-31546e4a377753503156-build.zip"
+					"S3Key": "amplify-builds/sendSupportEmail-6d5a66306c79686b4961-build.zip"
 				}
 			}
 		},
@@ -79,12 +79,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"betsmartLambdaRole1f6da2ab",
+						"betsmartLambdaRolec47d17d5",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"betsmartLambdaRole1f6da2ab",
+									"betsmartLambdaRolec47d17d5",
 									"-",
 									{
 										"Ref": "env"

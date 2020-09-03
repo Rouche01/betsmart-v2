@@ -26,7 +26,8 @@ const TipDashboard = (props) => {
   const phoneNumber = `0${user.phone_number.slice(4)}`;
   let date = user['custom:next-payment-date'];
   date = new Date(date);
-  date = date.toDateString();
+  date = date.toISOString().split('T');
+  date = date[0];
 
 
   const [dashboardState, setDashboardState] = useState('home');
@@ -242,6 +243,7 @@ const TipDashboard = (props) => {
         supportSbj: supportSubject
       }
       try {
+        console.log('worked');
         await API.post(apiName, apiEndpoint, { body });
         console.log('worked');
         setLoadingState(false);

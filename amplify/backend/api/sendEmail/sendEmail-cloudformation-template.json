@@ -14,15 +14,15 @@
         },
     
     
-          "functionsendSupportMailName": {
+          "functionsendSupportEmailName": {
             "Type": "String",
-            "Default": "functionsendSupportMailName"
+            "Default": "functionsendSupportEmailName"
           },
         
           
-          "functionsendSupportMailArn": {
+          "functionsendSupportEmailArn": {
             "Type": "String",
-            "Default": "functionsendSupportMailArn"
+            "Default": "functionsendSupportEmailArn"
           }
         
           
@@ -176,7 +176,7 @@
                             
                             {
                                 
-                                "Ref": "functionsendSupportMailArn"
+                                "Ref": "functionsendSupportEmailArn"
                             },
                             
                             "/invocations"
@@ -275,7 +275,7 @@
                           
                           {
                             
-                            "Ref": "functionsendSupportMailArn"
+                            "Ref": "functionsendSupportEmailArn"
                           },
                           
                           "/invocations"
@@ -332,12 +332,12 @@
                   
         
         
-        "functionsendSupportMailPermissionsendEmail": {
+        "functionsendSupportEmailPermissionsendEmail": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionsendSupportMailName"
+                        "Ref":  "functionsendSupportEmailName"
                     },
                     
                     "Action": "lambda:InvokeFunction",

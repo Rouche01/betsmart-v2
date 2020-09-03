@@ -1,5 +1,6 @@
 /* eslint-disable-line */ const aws = require('aws-sdk');
 
+
 exports.handler = async (event, context, callback) => {
   const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({ apiVersion: '2016-04-18' });
   const groupParams = {
@@ -25,4 +26,5 @@ exports.handler = async (event, context, callback) => {
   } catch (e) {
     callback(e);
   }
+
 };

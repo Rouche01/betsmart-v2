@@ -1,10 +1,10 @@
 .hero {
     font-family: 'Poppins', sans-serif;
-    height: 100vh;
+    height: calc(100vh + 20px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -80px;
+    margin-top: -100px;
     background: linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)), url(../images/heroBg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,6 +13,7 @@
         font-weight: 700;
         width: 75%;
         margin: 0 auto;
+        margin-top: 40px;
     }
     p {
         font-size: 20px;

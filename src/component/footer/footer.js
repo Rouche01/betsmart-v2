@@ -12,7 +12,8 @@ const Footer = ({bgType}) => {
   const [loadingState, setLoadingState] = useState(false);
 
   let colorStyle = {},
-  linkStyle = {}
+  linkStyle = {},
+  privacyLink = {}
 
   if(bgType === 'dark') {
     colorStyle = {
@@ -22,6 +23,10 @@ const Footer = ({bgType}) => {
     linkStyle = {
       color: '#fff'
     }
+    privacyLink = {
+      color: '#fff',
+      textDecoration: 'underline'
+    }
   } else {
     colorStyle = {
       backgroundColor: '#fff',
@@ -29,6 +34,10 @@ const Footer = ({bgType}) => {
     }
     linkStyle = {
       color: '#333'
+    }
+    privacyLink = {
+      color: '#333',
+      textDecoration: 'underline'
     }
   }
 
@@ -131,7 +140,7 @@ const Footer = ({bgType}) => {
           </form>
         </div>
         <input type="checkbox" name="agreement" id="agreement" className="mr-2 mt-2" />
-        <label className="mt-2" htmlFor="agreement">I Agree to the Privacy Policy</label>
+        <label className="mt-2" htmlFor="agreement">I Agree to the <Link to='/privacy-policy' style={privacyLink} >Privacy Policy</Link></label>
       </div>
     </div>
   );

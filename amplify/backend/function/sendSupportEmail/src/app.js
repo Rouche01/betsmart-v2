@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and limitations 
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
-var aws = require('aws-sdk');
+var nodemailer = require('nodemailer')
 
 // declare a new express app
 var app = express()
@@ -26,41 +26,36 @@ app.use(function(req, res, next) {
   next()
 });
 
-var ses = new aws.SES({region: 'us-east-2'});
+var transporter = nodemailer.createTransport({
+  host: 'smtp.zoho.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'support@betsmart.com.ng',
+    pass: '01!Rouche!01'
+  },
+});
 
 
 /****************************
 * Example post method *
 ****************************/
 
-app.post('/sendEmail', async function(req, res) {
+app.post('/sendEmail', function(req, res) {
   // Add your code here
   // res.json({success: 'post call succeed!', url: req.url, body: req.body})
-  var params = {
-    Destination: {
-      ToAddresses: ['richardemate@gmail.com']
-    },
-    Message: {
-      Body: {
-        Text: {
-          Data: `Phone Number: ${req.body.supportNum}, Message: ${req.body.supportMsg}`
-        }
-      },
-      Subject: {
-        Data: req.body.supportSbj
-      }
-    },
-    Source: "admin@betsmart.com.ng"
+  let mailOptions = {
+    from: 'support@betsmart.com.ng',
+    to: 'richardemate@gmail.com',
+    subject: 'Test',
+    html: `<h1>${req.body.supportMsg}</h1>`
   };
 
-  try {
-    await ses.sendEmail(params);
-    console.log('email sent');
-  } catch(err) {
-    console.log(err, 'This is an error');
-  }
-});
+  transporter.sendMail(mailOptions);
 
+  console.log('Message sent!')
+
+});
 
 
 app.listen(3000, function() {

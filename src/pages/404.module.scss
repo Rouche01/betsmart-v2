@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    div {
+        text-align: center;
+        h2 {
+            margin-top: -40px;
+            font-weight: bold;
+            font-size: 110px;
+            color: #FF9900;
+            margin-bottom: 30px;
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+    }
+}
+
+.link-owner {
+    margin-top: -10px;
+    a {
+        color: #FF9900;
+        text-decoration: underline;
+    }
+}
+
+@media only screen and (max-width: 499px) {
+    .wrapper {
+        padding: 0 25px;
+        div {
+            h2 {
+                font-size: 84px;
+            }
+        }
+    }
+}
