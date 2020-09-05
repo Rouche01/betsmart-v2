@@ -132,7 +132,7 @@ const Footer = ({bgType}) => {
         <h4>Subscribe Newsletter</h4>
         <div className={styles.formGroup}>
           { formStatus && <p className={styles.formStatus} style={{color: '#FF9900'}}>{formStatus}</p>}
-          <form className={styles.subForm} id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate>
+          <form className={styles.subForm} id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" noValidate>
             <input onChange={inputChange} name="EMAIL" id="mce-EMAIL" type="email" className="form-control form-control-lg" placeholder="Your email" />
             <button onClick={addToMailingList} className="btn btn-lg">Subscribe
               <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>

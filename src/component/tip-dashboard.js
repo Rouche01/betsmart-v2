@@ -25,7 +25,7 @@ const TipDashboard = (props) => {
 
   useEffect(() => {
     Auth.currentAuthenticatedUser().then(res => {
-      console.log(res.attributes);
+      // console.log(res.attributes);
       if (user !== res.attributes) {
         setUser(res.attributes);
         user = res.attributes
@@ -66,7 +66,7 @@ const TipDashboard = (props) => {
     setEmail(user.email);
     setPhone(phoneNumber);
     setGender(user.gender);
-    console.log(user['custom:payment-status']);
+    // console.log(user['custom:payment-status']);
     setPaymentStatus(user['custom:payment-status'])
   }, []);
 
@@ -111,7 +111,6 @@ const TipDashboard = (props) => {
   ]
 
   const handleLogout = async() => {
-    console.log('logout works');
     await Auth.signOut();
     logout(() => {
       navigate('/login');
@@ -119,7 +118,7 @@ const TipDashboard = (props) => {
   }
 
   const inputChange = (e) => {
-    console.log('works');
+    // console.log('works');
     switch(e.target.id) {
       case 'gender':
         setGender(e.target.options[e.target.selectedIndex].value);
@@ -157,10 +156,10 @@ const TipDashboard = (props) => {
       setTimeout(() => {
         if(genderRef.current !== undefined) {
           const optionsArr = genderRef.current.options;
-          console.log(optionsArr);
+          // console.log(optionsArr);
           for(let i = 0; i < optionsArr.length; i++) {
             if(optionsArr[i].value === gender ) {
-              console.log(optionsArr[i]);
+              // console.log(optionsArr[i]);
               optionsArr[i].selected = true;
             }
           }
@@ -175,7 +174,7 @@ const TipDashboard = (props) => {
     getSession().then(({ user }) => {
       const attributeList = [];
       const formattedPhoneNum = `+234${phone.slice(1)}`;
-      console.log(formattedPhoneNum);
+      // console.log(formattedPhoneNum);
 
       const updateableProfile = {
         gender: gender,
@@ -205,7 +204,7 @@ const TipDashboard = (props) => {
         });
         setLoadingState(false);
         notify.show("Your profile was edited successfully!", "success");
-        console.log(result);
+        // console.log(result);
       });
     });
   }

@@ -14,7 +14,7 @@ await new Promise((resolve, reject) => {
               reject(err);
             } else {
               const results = {};
-              console.log(attributes);
+              // console.log(attributes);
               for (let attribute of attributes) {
                 const { Name, Value } = attribute;
                 results[Name] = Value;

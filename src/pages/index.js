@@ -125,8 +125,8 @@ export default function Home({data}) {
           <div className="row mt-5 pt-2">
             { betSlipImages.map((betSlip, idx) => {
               return (
-                <div className="col-md-3 mb-md-0 mb-4">
-                  <Img sizes={betSlip.node.sizes} alt="betslip snapshot" />
+                <div key={`betslip_${idx}`} className="col-md-3 mb-md-0 mb-4">
+                  <Img fluid={betSlip.node.fluid} alt="betslip snapshot" />
                 </div>
               )
             })}
@@ -144,8 +144,8 @@ export const pageQuery = graphql`
     allImageSharp {
       edges {
         node {
-          sizes(maxWidth: 400) {
-            ...GatsbyImageSharpSizes
+          fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid
           }
         }
       }

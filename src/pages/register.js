@@ -67,7 +67,6 @@ const Register = (props) => {
 
   const redirectToCheckout = async(customerEmail, plan) => {
     const fetchSession = async(customerEmail, plan) => {
-      console.log('works');
       const apiName = 'subscription';
       const apiEndpoint = '/checkout';
       const body = {
@@ -95,11 +94,11 @@ const Register = (props) => {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         error: (error) => {
-          console.log('Error', error);
+          // console.log('Error', error);
           setLoadingState(false);
         },
         success: async(res) => {
-          console.log('success');
+          // console.log('success');
           const paymentLink = await redirectToCheckout(aEmail, aPricingPlan);
           setLoadingState(false);
           setRegisterError('');
@@ -108,7 +107,7 @@ const Register = (props) => {
       })
     } catch(error) {
       setRegisterError(error.message);
-      console.log('There was an error signing up', error);
+      // console.log('There was an error signing up', error);
       setLoadingState(false);
     }
   }

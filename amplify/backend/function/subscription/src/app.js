@@ -36,10 +36,10 @@ app.post('/checkout', async function(req, res) {
   let amount;
   if(req.body.plan === 'single') {
     amount = 300000;
-    plan = 'PLN_k7gakczaf9blobl';
+    plan = 'PLN_e0bcgn58im1x3v0';
   } else {
     amount = 700000;
-    plan = 'PLN_tnsv9abtvbijaxz';
+    plan = 'PLN_7su20v6k71534wg';
   }
   try {
     const session = await paystack.transaction.initialize({

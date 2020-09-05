@@ -112,7 +112,7 @@ const Login = (props) => {
     setLoadingState(true)
     if(resetEmail) {
       try {
-        console.log(resetEmail);
+        // console.log(resetEmail);
         await Auth.forgotPassword(resetEmail);
         setLoginError(null);
         setLoadingState(false);
@@ -128,7 +128,6 @@ const Login = (props) => {
   }
 
   const confirmPasswordReset = async() => {
-    console.log('works');
     setLoadingState(true);
     try {
       await Auth.forgotPasswordSubmit(resetEmail, confirmCode, newPassword);

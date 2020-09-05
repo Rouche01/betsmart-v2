@@ -17,7 +17,6 @@ const BlockedEntry = (props) => {
 
   const redirectToCheckout = async(customerEmail, plan) => {
     const fetchSession = async(customerEmail, plan) => {
-      console.log('works');
       const apiName = 'subscription';
       const apiEndpoint = '/checkout';
       const body = {
@@ -32,12 +31,11 @@ const BlockedEntry = (props) => {
   }
 
   const unlockAccess = async() => {
-    console.log('works');
     setLoadingState(true);
     try {
       const paymentInfo = await redirectToCheckout(user.email, plan);
       setLoadingState(false);
-      console.log(paymentInfo.data.authorization_url);
+      // console.log(paymentInfo.data.authorization_url);
       setUser(null);
       navigate(paymentInfo.data.authorization_url);
     } catch(err) {
