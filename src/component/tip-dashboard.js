@@ -74,39 +74,44 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Pachucha',
-      awayTeam: 'Gallos Blancos',
-      league: 'Mexican Primera',
+      homeTeam: 'M.Sundowns',
+      awayTeam: 'Black Leopards',
+      league: 'S.Africa Premier',
+      odds: 1.65,
+      tips: 'M.Sundowns to win',
+      time: ''
+    },
+    {
+      homeTeam: 'Denmark',
+      awayTeam: 'Belgium',
+      league: 'UEFA Nations League',
+      odds: 1.75,
+      tips: 'Both Teams to Score',
+      time: ''
+    },
+    {
+      homeTeam: 'J-Sodra',
+      awayTeam: 'AFC Eskilstuna',
+      league: 'Sweden Superettan',
       odds: 1.55,
-      tips: 'Over +2.5 Goals'
+      tips: 'J-Sodra Wins',
+      time: ''
     },
     {
-      homeTeam: 'Musan Salama',
-      awayTeam: 'Mypa',
-      league: 'Finland Ykonnen',
-      odds: 3.35,
-      tips: 'Over +2.5 Goals'
+      homeTeam: 'Kajaani',
+      awayTeam: 'Musan Salama',
+      league: 'Finland Ykkonen',
+      odds: 1.55,
+      tips: 'Over +2.5 Goals',
+      time: ''
     },
     {
-      homeTeam: 'Man. United',
-      awayTeam: 'Copenhagen',
-      league: 'UEFA Europa League',
-      odds: 1.35,
-      tips: 'Man. United Wins'
-    },
-    {
-      homeTeam: 'Rukh Vynnyky',
-      awayTeam: 'Metalurh',
-      league: 'Ukraine Persha',
-      odds: 1.45,
-      tips: 'Rukh Vynnyky Wins'
-    },
-    {
-      homeTeam: 'Jerv',
-      awayTeam: 'Kongsvinger',
-      league: 'Norway OBOS-ligaen',
-      odds: 8.15,
-      tips: 'Correct Score 1-1 or 1-0'
+      homeTeam: 'Roda',
+      awayTeam: 'Top Oss',
+      league: 'Holland Eerste Divisie',
+      odds: 1.73,
+      tips: 'Roda to win',
+      time: ''
     }
   ]
 
