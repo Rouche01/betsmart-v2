@@ -40,7 +40,7 @@ export default function Home({data}) {
 
   return (
     <Layout footerBgType="dark" >
-      <SEO title="Home" />
+      <SEO title="Win Big on Your Sports Betting" />
       <div className={styles.hero}>
         <div className={[styles.heroContent, 'text-center', 'text-white'].join(' ')}>
           <h1>We are the <span style={{color: "#FF9900"}}>King</span> of Betting Odds</h1>

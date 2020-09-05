@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     title: `Betsmart`,
     siteUrl: `https://betsmart.com.ng`,
-    description: `Make more money from sports betting with accurate betting tips that is 90% accurate.`,
+    description: `Do you want to make more money on sports betting and lose wayyyyy less? With Betsmart, you get a low cost membership service that provides you with daily betting tips of over 5 odds.`,
     author: `Betsmart Inc.`
   },
   plugins: [
