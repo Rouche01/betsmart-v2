@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and limitations 
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
-var paystack = require('paystack-api')(process.env.PAYSTACK_TEST_KEY)
+var paystack = require('paystack-api')(process.env.PAYSTACK_SECRET_KEY)
 
 // declare a new express app
 var app = express()
