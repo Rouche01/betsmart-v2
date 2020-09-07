@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'M.Sundowns',
-      awayTeam: 'Black Leopards',
-      league: 'S.Africa Premier',
-      odds: 1.65,
-      tips: 'M.Sundowns to win',
-      time: ''
-    },
-    {
-      homeTeam: 'Denmark',
-      awayTeam: 'Belgium',
+      homeTeam: 'Austria',
+      awayTeam: 'Romania',
       league: 'UEFA Nations League',
-      odds: 1.75,
-      tips: 'Both Teams to Score',
+      odds: 1.82,
+      tips: 'Austria to win',
       time: ''
     },
     {
-      homeTeam: 'J-Sodra',
-      awayTeam: 'AFC Eskilstuna',
-      league: 'Sweden Superettan',
-      odds: 1.55,
-      tips: 'J-Sodra Wins',
+      homeTeam: 'Wadi Degla',
+      awayTeam: 'Al-Mokawloon',
+      league: 'Egypt Premier League',
+      odds: 1.52,
+      tips: 'Under 2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Kajaani',
-      awayTeam: 'Musan Salama',
-      league: 'Finland Ykkonen',
+      homeTeam: 'Grindavik',
+      awayTeam: 'IBV Vestmannaeyjar',
+      league: 'Iceland - 1. Deild',
       odds: 1.55,
+      tips: 'Both Team Scores',
+      time: ''
+    },
+    {
+      homeTeam: 'Thor Akureyri',
+      awayTeam: 'Keflavik',
+      league: 'Iceland - 1. Deild',
+      odds: 1.50,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Roda',
-      awayTeam: 'Top Oss',
-      league: 'Holland Eerste Divisie',
-      odds: 1.73,
-      tips: 'Roda to win',
+      homeTeam: 'Netherlands',
+      awayTeam: 'Italy',
+      league: 'UEFA Nations League',
+      odds: 1.4,
+      tips: 'Over +1.5 Goals',
       time: ''
     }
   ]
