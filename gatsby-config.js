@@ -31,23 +31,10 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-facebook-multi-pixels`,
-      options: [
-        {
-          dev: false,
-          alias: 'pucpredictMakeDo',
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options:{
           pixelId: process.env.FACEBOOK_PIXEL_ID_PP,
-          viewContent: true,
-          pageView: true,
-        },
-        {
-          dev: false,
-          alias: 'betSmart',
-          pixelId: process.env.FACEBOOK_PIXEL_ID_BS,
-          viewContent: true,
-          pageView: true,
         }
-      ]
     }
   ],
 }
