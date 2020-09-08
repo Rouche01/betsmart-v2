@@ -13,7 +13,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var crypto = require('crypto')
-var secret = process.env.PAYSTACK_TEST_KEY
+var secret = process.env.PAYSTACK_SECRET_KEY
 
 // declare a new express app
 var app = express()
