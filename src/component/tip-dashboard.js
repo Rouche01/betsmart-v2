@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Austria',
-      awayTeam: 'Romania',
-      league: 'UEFA Nations League',
-      odds: 1.82,
-      tips: 'Austria to win',
-      time: ''
-    },
-    {
-      homeTeam: 'Wadi Degla',
-      awayTeam: 'Al-Mokawloon',
-      league: 'Egypt Premier League',
-      odds: 1.52,
-      tips: 'Under 2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Grindavik',
-      awayTeam: 'IBV Vestmannaeyjar',
-      league: 'Iceland - 1. Deild',
+      homeTeam: 'Asane',
+      awayTeam: 'Jervm',
+      league: 'Norway OBOS-ligaen',
       odds: 1.55,
-      tips: 'Both Team Scores',
+      tips: 'Both Teams to Score',
       time: ''
     },
     {
-      homeTeam: 'Thor Akureyri',
-      awayTeam: 'Keflavik',
-      league: 'Iceland - 1. Deild',
-      odds: 1.50,
+      homeTeam: 'Venezia',
+      awayTeam: 'Trieste',
+      league: 'Italy Supercoppa',
+      odds: 1.35,
+      tips: 'Venezia wins',
+      time: ''
+    },
+    {
+      homeTeam: 'HamKam',
+      awayTeam: 'Raufoss',
+      league: 'Norway OBOS-ligaen',
+      odds: 1.53,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Netherlands',
-      awayTeam: 'Italy',
+      homeTeam: 'Sogndal',
+      awayTeam: 'Strommen',
+      league: 'Norway OBOS-ligaen',
+      odds: 1.52,
+      tips: 'Over +2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'France',
+      awayTeam: 'Croatia',
       league: 'UEFA Nations League',
-      odds: 1.4,
-      tips: 'Over +1.5 Goals',
+      odds: 1.7,
+      tips: 'France Wins',
       time: ''
     }
   ]
