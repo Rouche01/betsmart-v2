@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Asane',
-      awayTeam: 'Jervm',
-      league: 'Norway OBOS-ligaen',
-      odds: 1.55,
-      tips: 'Both Teams to Score',
-      time: ''
-    },
-    {
-      homeTeam: 'Venezia',
-      awayTeam: 'Trieste',
-      league: 'Italy Supercoppa',
-      odds: 1.35,
-      tips: 'Venezia wins',
-      time: ''
-    },
-    {
-      homeTeam: 'HamKam',
-      awayTeam: 'Raufoss',
-      league: 'Norway OBOS-ligaen',
-      odds: 1.53,
-      tips: 'Over +2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Sogndal',
-      awayTeam: 'Strommen',
-      league: 'Norway OBOS-ligaen',
+      homeTeam: 'Guangzhou Evergrande',
+      awayTeam: 'Shenzhen FC',
+      league: 'China Super League',
       odds: 1.52,
+      tips: 'Guangzhou Evergrande Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Kuopio PS',
+      awayTeam: 'Rovaniemi',
+      league: 'Finland Veikkausliiga',
+      odds: 1.55,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'France',
-      awayTeam: 'Croatia',
-      league: 'UEFA Nations League',
-      odds: 1.7,
-      tips: 'France Wins',
+      homeTeam: 'Athletico Paranaense',
+      awayTeam: 'Botafogo RJ',
+      league: 'Brazil Serie A',
+      odds: 1.55,
+      tips: 'Under 2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'Nagoya',
+      awayTeam: 'Yokohama',
+      league: 'Japan J. League',
+      odds: 1.45,
+      tips: 'Over +2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'Houston Rockets',
+      awayTeam: 'LA Lakers',
+      league: 'USA NBA',
+      odds: 1.68,
+      tips: 'LA Lakers Wins',
       time: ''
     }
   ]

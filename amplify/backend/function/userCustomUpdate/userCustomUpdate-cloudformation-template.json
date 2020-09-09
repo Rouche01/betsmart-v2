@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"paystackHook",
+						"userCustomUpdate",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"paystackHook",
+									"userCustomUpdate",
 									"-",
 									{
 										"Ref": "env"
@@ -69,7 +69,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-betsmart-dev-135909-deployment",
-					"S3Key": "amplify-builds/paystackHook-626c435745477378557a-build.zip"
+					"S3Key": "amplify-builds/userCustomUpdate-396c50314d4e58364e51-build.zip"
 				}
 			}
 		},
@@ -79,12 +79,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"betsmartLambdaRole7cf1d7a5",
+						"betsmartLambdaRolef4642c69",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"betsmartLambdaRole7cf1d7a5",
+									"betsmartLambdaRolef4642c69",
 									"-",
 									{
 										"Ref": "env"

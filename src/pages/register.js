@@ -80,6 +80,23 @@ const Register = (props) => {
     return session;
   }
 
+  // const customUpdateUser = async() => {
+  //   const apiName = 'customerUpdate';
+  //   const apiEndpoint = '/customerUpdate';
+  //   const body = {
+  //     email: 'tboyreal@yahoo.com',
+  //     date: '2020-10-08T00:00:00.000Z'
+  //   }
+
+  //   console.log('works');
+  //   try {
+  //     await API.post(apiName, apiEndpoint, { body });
+  //   } catch(err) {
+  //     console.log(err);
+  //   }
+    
+  // }
+
   async function signUp(aEmail, aFName, aLName, aPassword, aPhone, aPricingPlan)  {
     setLoadingState(true);
     try {
@@ -186,6 +203,7 @@ const Register = (props) => {
             <div className={styles.registerForm}>
               <Link to="/"><img src={ windowSize > 500 ? Logo : LogoAlt } alt="Betsmart logo" /></Link>
               <h3 className="mt-5">Create Your Account</h3>
+              {/* <button onClick={customUpdateUser}>update user</button> */}
               <form id="mc-embedded-subscribe-form" className="mt-4">
                 { registerError && <p className={styles.registerError}>{registerError}</p>}
                 <React.Fragment>

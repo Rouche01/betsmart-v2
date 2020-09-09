@@ -62,6 +62,20 @@
 					]
 				}
 			]
+		},
+		"customerUpdate": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "userCustomUpdate",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
 		}
 	},
 	"function": {
@@ -88,6 +102,12 @@
 			"service": "Lambda"
 		},
 		"sendSupportEmail": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": []
+		},
+		"userCustomUpdate": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",
