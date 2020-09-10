@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Guangzhou Evergrande',
-      awayTeam: 'Shenzhen FC',
+      homeTeam: 'Shanghai SIPG FC',
+      awayTeam: 'Qingdao Huanghai',
       league: 'China Super League',
-      odds: 1.52,
-      tips: 'Guangzhou Evergrande Wins',
+      odds: 1.32,
+      tips: 'Shanghai SIPG Wins',
       time: ''
     },
     {
-      homeTeam: 'Kuopio PS',
-      awayTeam: 'Rovaniemi',
-      league: 'Finland Veikkausliiga',
-      odds: 1.55,
-      tips: 'Over +2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Athletico Paranaense',
-      awayTeam: 'Botafogo RJ',
-      league: 'Brazil Serie A',
+      homeTeam: 'CS Sfaxien',
+      awayTeam: 'Club Africain',
+      league: 'Tunisia Ligue',
       odds: 1.55,
       tips: 'Under 2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Nagoya',
-      awayTeam: 'Yokohama',
-      league: 'Japan J. League',
-      odds: 1.45,
+      homeTeam: 'Oerebro',
+      awayTeam: 'Malmoe FF',
+      league: 'Sweden Allsvenskan',
+      odds: 1.63,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Houston Rockets',
-      awayTeam: 'LA Lakers',
-      league: 'USA NBA',
-      odds: 1.68,
-      tips: 'LA Lakers Wins',
+      homeTeam: 'Lens',
+      awayTeam: 'Paris Saint-Germain',
+      league: 'France Ligue',
+      odds: 1.85,
+      tips: 'Paris Saint-Germain Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Valur',
+      awayTeam: 'Kopavogs',
+      league: 'Iceland Cup',
+      odds: 1.45,
+      tips: 'Valur Wins',
       time: ''
     }
   ]
