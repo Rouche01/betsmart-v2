@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Shanghai SIPG FC',
-      awayTeam: 'Qingdao Huanghai',
-      league: 'China Super League',
-      odds: 1.32,
-      tips: 'Shanghai SIPG Wins',
+      homeTeam: 'Rizespor',
+      awayTeam: 'Fenerbahce',
+      league: 'Turkey - Super Lig',
+      odds: 1.90,
+      tips: 'Fenerbahce Wins',
       time: ''
     },
     {
-      homeTeam: 'CS Sfaxien',
-      awayTeam: 'Club Africain',
-      league: 'Tunisia Ligue',
-      odds: 1.55,
-      tips: 'Under 2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Oerebro',
-      awayTeam: 'Malmoe FF',
-      league: 'Sweden Allsvenskan',
-      odds: 1.63,
+      homeTeam: 'Atlantis FC',
+      awayTeam: 'Grankulla IFK',
+      league: 'Finland Kakkonen - Group B',
+      odds: 1.50,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Lens',
-      awayTeam: 'Paris Saint-Germain',
-      league: 'France Ligue',
-      odds: 1.85,
-      tips: 'Paris Saint-Germain Wins',
+      homeTeam: 'Jong AZ',
+      awayTeam: 'Jong PSV',
+      league: 'Netherlands - Eerste Divisie',
+      odds: 1.43,
+      tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Valur',
-      awayTeam: 'Kopavogs',
-      league: 'Iceland Cup',
-      odds: 1.45,
-      tips: 'Valur Wins',
+      homeTeam: 'Austria Klagenfurt',
+      awayTeam: 'BW Linz',
+      league: 'Austria - 2. Liga',
+      odds: 1.50,
+      tips: 'Over +2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'LASK',
+      awayTeam: 'Austria Wien',
+      league: 'Austria - Bundesliga',
+      odds: 1.57,
+      tips: 'LASK wins',
       time: ''
     }
   ]
