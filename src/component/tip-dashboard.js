@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Rizespor',
-      awayTeam: 'Fenerbahce',
-      league: 'Turkey - Super Lig',
-      odds: 1.90,
-      tips: 'Fenerbahce Wins',
+      homeTeam: 'Djurgaarden',
+      awayTeam: 'Elfsborg',
+      league: 'Sweden - Allsvenskan',
+      odds: 1.70,
+      tips: 'Both Team to Score',
       time: ''
     },
     {
-      homeTeam: 'Atlantis FC',
-      awayTeam: 'Grankulla IFK',
-      league: 'Finland Kakkonen - Group B',
+      homeTeam: 'Maribor',
+      awayTeam: 'NK Bravo',
+      league: 'Slovenia - Prva Liga',
+      odds: 1.60,
+      tips: 'Maribor Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Kristiansund BK',
+      awayTeam: 'Viking',
+      league: 'Norway - Eliteserien',
       odds: 1.50,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Jong AZ',
-      awayTeam: 'Jong PSV',
-      league: 'Netherlands - Eerste Divisie',
-      odds: 1.43,
+      homeTeam: 'FC Vaajakoski',
+      awayTeam: 'SC KuFu-98',
+      league: 'Finland - Kakkonen Group C',
+      odds: 1.60,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Austria Klagenfurt',
-      awayTeam: 'BW Linz',
-      league: 'Austria - 2. Liga',
-      odds: 1.50,
+      homeTeam: 'Aarau',
+      awayTeam: 'Wil',
+      league: 'Switzerland Cup',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'LASK',
-      awayTeam: 'Austria Wien',
-      league: 'Austria - Bundesliga',
-      odds: 1.57,
-      tips: 'LASK wins',
       time: ''
     }
   ]
