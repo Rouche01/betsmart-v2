@@ -74,42 +74,42 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Djurgaarden',
-      awayTeam: 'Elfsborg',
-      league: 'Sweden - Allsvenskan',
-      odds: 1.70,
+      homeTeam: 'Levski Sofia',
+      awayTeam: 'Etar',
+      league: 'Bulgaria League',
+      odds: 1.50,
+      tips: 'Levski Sofia Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Anderlecht',
+      awayTeam: 'Cercle Brugge',
+      league: 'Belgium - First Division A League',
+      odds: 1.55,
+      tips: 'Anderlecht Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Hafnarfjordur',
+      awayTeam: 'Breidablik',
+      league: 'Iceland Urvalsdeild',
+      odds: 1.45,
+      tips: 'Over +2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'Trabzonspor',
+      awayTeam: 'Besiktas',
+      league: 'Turkey Super Lig',
+      odds: 1.55,
       tips: 'Both Team to Score',
       time: ''
     },
     {
-      homeTeam: 'Maribor',
-      awayTeam: 'NK Bravo',
-      league: 'Slovenia - Prva Liga',
-      odds: 1.60,
-      tips: 'Maribor Wins',
-      time: ''
-    },
-    {
-      homeTeam: 'Kristiansund BK',
-      awayTeam: 'Viking',
-      league: 'Norway - Eliteserien',
-      odds: 1.50,
-      tips: 'Over +2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'FC Vaajakoski',
-      awayTeam: 'SC KuFu-98',
-      league: 'Finland - Kakkonen Group C',
-      odds: 1.60,
-      tips: 'Over +2.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Aarau',
-      awayTeam: 'Wil',
-      league: 'Switzerland Cup',
-      odds: 1.40,
+      homeTeam: 'Wolfsberger AC',
+      awayTeam: 'Salzburg',
+      league: 'Austria Bundesliga',
+      odds: 1.45,
       tips: 'Over +2.5 Goals',
       time: ''
     }
