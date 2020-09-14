@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Levski Sofia',
-      awayTeam: 'Etar',
-      league: 'Bulgaria League',
-      odds: 1.50,
-      tips: 'Levski Sofia Wins',
+      homeTeam: 'Zenit St. Petersburg',
+      awayTeam: 'A.Tula',
+      league: 'Russia Premier',
+      odds: 1.40,
+      tips: 'Zenit Wins',
       time: ''
     },
     {
-      homeTeam: 'Anderlecht',
-      awayTeam: 'Cercle Brugge',
-      league: 'Belgium - First Division A League',
+      homeTeam: 'Kalmar FF',
+      awayTeam: 'Norrkoeping',
+      league: 'Sweden Allsvenskan',
       odds: 1.55,
-      tips: 'Anderlecht Wins',
+      tips: 'Both Teams Score',
       time: ''
     },
     {
-      homeTeam: 'Hafnarfjordur',
-      awayTeam: 'Breidablik',
-      league: 'Iceland Urvalsdeild',
-      odds: 1.45,
+      homeTeam: 'NAC Breda',
+      awayTeam: 'Den Bosch',
+      league: 'Netherlands, Eerste Divisie',
+      odds: 1.53,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Trabzonspor',
-      awayTeam: 'Besiktas',
-      league: 'Turkey Super Lig',
-      odds: 1.55,
-      tips: 'Both Team to Score',
+      homeTeam: 'Haecken',
+      awayTeam: 'Sirius',
+      league: 'Sweden Allsvenskan',
+      odds: 1.85,
+      tips: 'Haecken Wins',
       time: ''
     },
     {
-      homeTeam: 'Wolfsberger AC',
-      awayTeam: 'Salzburg',
-      league: 'Austria Bundesliga',
-      odds: 1.45,
-      tips: 'Over +2.5 Goals',
+      homeTeam: 'Stroemmen',
+      awayTeam: 'HamKam',
+      league: 'Norway - 1. Divisjon',
+      odds: 1.63,
+      tips: 'Both Teams Score',
       time: ''
     }
   ]
