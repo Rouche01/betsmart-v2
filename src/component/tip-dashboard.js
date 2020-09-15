@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Zenit St. Petersburg',
-      awayTeam: 'A.Tula',
-      league: 'Russia Premier',
-      odds: 1.40,
-      tips: 'Zenit Wins',
+      homeTeam: 'Tromso',
+      awayTeam: 'Lillestrom',
+      league: 'Norway - 1. Divisjon',
+      odds: 1.38,
+      tips: 'Tromso or Draw 1X',
       time: ''
     },
     {
-      homeTeam: 'Kalmar FF',
-      awayTeam: 'Norrkoeping',
-      league: 'Sweden Allsvenskan',
-      odds: 1.55,
-      tips: 'Both Teams Score',
+      homeTeam: 'Tshakhuma FC',
+      awayTeam: 'Ajax Cape Town',
+      league: 'South Africa - Premier Soccer League Qualification Group',
+      odds: 1.45,
+      tips: 'Over +1.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'NAC Breda',
-      awayTeam: 'Den Bosch',
-      league: 'Netherlands, Eerste Divisie',
-      odds: 1.53,
+      homeTeam: 'Deutschlandsberger',
+      awayTeam: 'Bad Gleichenberg',
+      league: 'Austria, Regionalliga Middle',
+      odds: 1.42,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Haecken',
-      awayTeam: 'Sirius',
-      league: 'Sweden Allsvenskan',
-      odds: 1.85,
-      tips: 'Haecken Wins',
+      homeTeam: 'Montpellier',
+      awayTeam: 'Lyon',
+      league: 'France - Ligue 1',
+      odds: 1.90,
+      tips: 'Both Teams to Score',
       time: ''
     },
     {
-      homeTeam: 'Stroemmen',
-      awayTeam: 'HamKam',
-      league: 'Norway - 1. Divisjon',
-      odds: 1.63,
-      tips: 'Both Teams Score',
+      homeTeam: 'Oesters',
+      awayTeam: 'Trelleborgs',
+      league: 'Sweden - Superettan',
+      odds: 1.30,
+      tips: 'Over +1.5 Goals',
       time: ''
     }
   ]
