@@ -74,43 +74,43 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Tromso',
-      awayTeam: 'Lillestrom',
-      league: 'Norway - 1. Divisjon',
-      odds: 1.38,
-      tips: 'Tromso or Draw 1X',
-      time: ''
-    },
-    {
-      homeTeam: 'Tshakhuma FC',
-      awayTeam: 'Ajax Cape Town',
-      league: 'South Africa - Premier Soccer League Qualification Group',
-      odds: 1.45,
-      tips: 'Over +1.5 Goals',
-      time: ''
-    },
-    {
-      homeTeam: 'Deutschlandsberger',
-      awayTeam: 'Bad Gleichenberg',
-      league: 'Austria, Regionalliga Middle',
-      odds: 1.42,
+      homeTeam: 'Radomlje',
+      awayTeam: 'Rudar Velenje',
+      league: 'Slovenia - 2. Divisjon',
+      odds: 1.47,
       tips: 'Over +2.5 Goals',
       time: ''
     },
     {
-      homeTeam: 'Montpellier',
-      awayTeam: 'Lyon',
+      homeTeam: 'Paris Saint-Germain',
+      awayTeam: 'Metz',
       league: 'France - Ligue 1',
-      odds: 1.90,
+      odds: 1.4,
+      tips: 'PSG Wins',
+      time: ''
+    },
+    {
+      homeTeam: 'Sundsvall',
+      awayTeam: 'Akropolis',
+      league: 'Sweden Superettan',
+      odds: 1.72,
       tips: 'Both Teams to Score',
       time: ''
     },
     {
-      homeTeam: 'Oesters',
-      awayTeam: 'Trelleborgs',
-      league: 'Sweden - Superettan',
-      odds: 1.30,
-      tips: 'Over +1.5 Goals',
+      homeTeam: 'Kobe',
+      awayTeam: 'C-Osaka',
+      league: 'Japan J. League',
+      odds: 1.70,
+      tips: 'Over +2.5 Goals',
+      time: ''
+    },
+    {
+      homeTeam: 'Kotka',
+      awayTeam: 'Gnistan',
+      league: 'Finland Ykkonen',
+      odds: 1.40,
+      tips: 'Over +2.5 Goals',
       time: ''
     }
   ]
