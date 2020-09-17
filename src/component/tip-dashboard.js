@@ -74,45 +74,96 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Radomlje',
-      awayTeam: 'Rudar Velenje',
-      league: 'Slovenia - 2. Divisjon',
+      homeTeam: 'Honved',
+      awayTeam: 'Malmo',
+      league: 'UEFA Europa Qualification',
+      odds: 1.45,
+      tips: 'Malmo Next Round Qualification',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'N.Baku',
+      awayTeam: 'Galatasaray',
+      league: 'UEFA Europa Qualification',
+      odds: 1.65,
+      tips: 'Galatasaray Wins',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'L.Plovdiv',
+      awayTeam: 'Tottenham',
+      league: 'UEFA Europa League',
+      odds: 1.36,
+      tips: 'Tottenham Wins',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Neman 2',
+      awayTeam: 'FC Minsk 2',
+      league: 'Belarus, Premier League Reserve',
       odds: 1.47,
       tips: 'Over +2.5 Goals',
+      risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Paris Saint-Germain',
-      awayTeam: 'Metz',
-      league: 'France - Ligue 1',
-      odds: 1.4,
-      tips: 'PSG Wins',
-      time: ''
-    },
-    {
-      homeTeam: 'Sundsvall',
-      awayTeam: 'Akropolis',
-      league: 'Sweden Superettan',
-      odds: 1.72,
-      tips: 'Both Teams to Score',
-      time: ''
-    },
-    {
-      homeTeam: 'Kobe',
-      awayTeam: 'C-Osaka',
-      league: 'Japan J. League',
-      odds: 1.70,
+      homeTeam: 'Grindavik',
+      awayTeam: 'Leiknir',
+      league: 'Iceland, 1. Deild',
+      odds: 1.60,
       tips: 'Over +2.5 Goals',
+      risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Kotka',
-      awayTeam: 'Gnistan',
-      league: 'Finland Ykkonen',
+      homeTeam: 'Astana',
+      awayTeam: 'Buducnost',
+      league: 'UEFA Europa League',
       odds: 1.40,
+      tips: 'Astana Wins',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Shamrock',
+      awayTeam: 'AC Milan',
+      league: 'UEFA Europa League',
+      odds: 1.45,
       tips: 'Over +2.5 Goals',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Botosani',
+      awayTeam: 'Shkendija',
+      league: 'UEFA Europa Qualification',
+      odds: 1.45,
+      tips: 'Botosani Next Round Qualification',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Keflavik',
+      awayTeam: 'Fram Reykjavik',
+      league: 'Iceland, 1. Deild',
+      odds: 1.55,
+      tips: 'Both Teams to Score',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Hafnarfjordur',
+      awayTeam: 'Vikingur',
+      league: 'Iceland Urvalsdeild',
+      odds: 1.61,
+      tips: 'Over +2.5 Goals',
+      risk: 'Moderate/High',
       time: ''
     }
+
   ]
 
   const handleLogout = async() => {
@@ -348,7 +399,7 @@ const TipDashboard = (props) => {
             <div className="col-md-7 mt-md-0 mt-4">
               { dashboardState === 'home' &&  tipData.map((tip, idx) => {
                 return (
-                  <TipBox key={`tip_${idx}`} hTeam={tip.homeTeam} aTeam={tip.awayTeam} leagueName={tip.league} odds={tip.odds} tips={tip.tips} />
+                  <TipBox key={`tip_${idx}`} hTeam={tip.homeTeam} aTeam={tip.awayTeam} leagueName={tip.league} odds={tip.odds} tips={tip.tips} riskLevel={tip.risk} />
                 )
               }) }
               { dashboardState === 'profile' && <div className={styles.accountInfo} >

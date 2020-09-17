@@ -84,8 +84,8 @@ const Register = (props) => {
   //   const apiName = 'customerUpdate';
   //   const apiEndpoint = '/customerUpdate';
   //   const body = {
-  //     email: 'tboyreal@yahoo.com',
-  //     date: '2020-10-08T00:00:00.000Z'
+  //     email: 'splendorgz@gmail.com',
+  //     date: '2020-10-16T00:00:00.000Z'
   //   }
 
   //   console.log('works');
