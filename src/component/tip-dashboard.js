@@ -74,93 +74,75 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Honved',
-      awayTeam: 'Malmo',
-      league: 'UEFA Europa Qualification',
+      homeTeam: 'Roda JC',
+      awayTeam: 'FC Dordrecht',
+      league: 'Netherlands, Eerste Divisie',
       odds: 1.45,
-      tips: 'Malmo Next Round Qualification',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'N.Baku',
-      awayTeam: 'Galatasaray',
-      league: 'UEFA Europa Qualification',
-      odds: 1.65,
-      tips: 'Galatasaray Wins',
-      risk: 'Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'L.Plovdiv',
-      awayTeam: 'Tottenham',
-      league: 'UEFA Europa League',
-      odds: 1.36,
-      tips: 'Tottenham Wins',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Neman 2',
-      awayTeam: 'FC Minsk 2',
-      league: 'Belarus, Premier League Reserve',
-      odds: 1.47,
       tips: 'Over +2.5 Goals',
       risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Grindavik',
-      awayTeam: 'Leiknir',
-      league: 'Iceland, 1. Deild',
-      odds: 1.60,
+      homeTeam: 'Jong PSV',
+      awayTeam: 'FC Eindhoven',
+      league: 'Netherlands, Eerste Divisie',
+      odds: 1.52,
       tips: 'Over +2.5 Goals',
-      risk: 'Moderate',
+      risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Astana',
-      awayTeam: 'Buducnost',
-      league: 'UEFA Europa League',
+      homeTeam: 'HB Torshavn II',
+      awayTeam: 'B68 Tofta',
+      league: 'Faroe Islands 1',
+      odds: 1.4,
+      tips: 'Over +2.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'FC Krasnodar',
+      awayTeam: 'Khimki',
+      league: 'Russia Premier League',
+      odds: 1.26,
+      tips: 'Over +1.5 Goals',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Vojvodina',
+      awayTeam: 'FK Radnik',
+      league: 'Serbia Super Liga',
+      odds: 1.33,
+      tips: 'Vojvodina Wins',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Bayern Munich',
+      awayTeam: 'Schalke 04',
+      league: 'Germany - 1. Bundesliga',
       odds: 1.40,
-      tips: 'Astana Wins',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Shamrock',
-      awayTeam: 'AC Milan',
-      league: 'UEFA Europa League',
-      odds: 1.45,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Botosani',
-      awayTeam: 'Shkendija',
-      league: 'UEFA Europa Qualification',
-      odds: 1.45,
-      tips: 'Botosani Next Round Qualification',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Keflavik',
-      awayTeam: 'Fram Reykjavik',
-      league: 'Iceland, 1. Deild',
+      homeTeam: 'Slavia Prague',
+      awayTeam: 'Teplice',
+      league: 'Czech Republic Liga',
       odds: 1.55,
-      tips: 'Both Teams to Score',
-      risk: 'Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Hafnarfjordur',
-      awayTeam: 'Vikingur',
-      league: 'Iceland Urvalsdeild',
-      odds: 1.61,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate/High',
+      time: ''
+    },
+    {
+      homeTeam: 'Lyon',
+      awayTeam: 'Nimes',
+      league: 'France, Ligue 1',
+      odds: 1.25,
+      tips: 'Over +1.5 Goals',
+      risk: 'Low',
       time: ''
     }
 
