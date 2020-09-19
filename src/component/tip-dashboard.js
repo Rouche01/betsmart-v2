@@ -74,78 +74,59 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Roda JC',
-      awayTeam: 'FC Dordrecht',
-      league: 'Netherlands, Eerste Divisie',
-      odds: 1.45,
-      tips: 'Over +2.5 Goals',
+      homeTeam: 'Celtic',
+      awayTeam: 'Livingston',
+      league: 'Scotland Premiership',
+      odds: 1.25,
+      tips: 'Celtic Wins',
       risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Jong PSV',
-      awayTeam: 'FC Eindhoven',
-      league: 'Netherlands, Eerste Divisie',
-      odds: 1.52,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'HB Torshavn II',
-      awayTeam: 'B68 Tofta',
-      league: 'Faroe Islands 1',
-      odds: 1.4,
+      homeTeam: 'Vaalerenga',
+      awayTeam: 'Molde',
+      league: 'Norway Eliteserien',
+      odds: 1.50,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'FC Krasnodar',
-      awayTeam: 'Khimki',
-      league: 'Russia Premier League',
-      odds: 1.26,
+      homeTeam: 'Manchester United',
+      awayTeam: 'Crystal Palace',
+      league: 'England Premier League',
+      odds: 1.35,
+      tips: 'Manchester United',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Aarau',
+      awayTeam: 'Wil',
+      league: 'Switzerland Challenge League',
+      odds: 1.20,
       tips: 'Over +1.5 Goals',
       risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Vojvodina',
-      awayTeam: 'FK Radnik',
-      league: 'Serbia Super Liga',
-      odds: 1.33,
-      tips: 'Vojvodina Wins',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Bayern Munich',
-      awayTeam: 'Schalke 04',
-      league: 'Germany - 1. Bundesliga',
-      odds: 1.40,
+      homeTeam: 'Young Boys',
+      awayTeam: 'FC Zurich',
+      league: 'Switzerland Super League',
+      odds: 1.45,
       tips: 'Over +2.5 Goals',
-      risk: 'Moderate',
+      risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Slavia Prague',
-      awayTeam: 'Teplice',
-      league: 'Czech Republic Liga',
-      odds: 1.55,
-      tips: 'Over +2.5 Goals',
-      risk: 'Moderate/High',
-      time: ''
-    },
-    {
-      homeTeam: 'Lyon',
-      awayTeam: 'Nimes',
-      league: 'France, Ligue 1',
+      homeTeam: 'Berliner AK 07',
+      awayTeam: 'Carl Zeiss Jena',
+      league: 'Germany Regional League',
       odds: 1.25,
       tips: 'Over +1.5 Goals',
-      risk: 'Low',
+      risk: 'Moderate',
       time: ''
     }
-
   ]
 
   const handleLogout = async() => {
