@@ -74,57 +74,57 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Celtic',
-      awayTeam: 'Livingston',
-      league: 'Scotland Premiership',
-      odds: 1.25,
-      tips: 'Celtic Wins',
+      homeTeam: 'Slovacko II',
+      awayTeam: 'Jihlava II',
+      league: 'Czech Republic 3',
+      odds: 1.40,
+      tips: 'Over +2.5 Goals',
       risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Vaalerenga',
-      awayTeam: 'Molde',
-      league: 'Norway Eliteserien',
-      odds: 1.50,
+      homeTeam: 'RB Leipzig',
+      awayTeam: 'Mainz 05',
+      league: 'Germany Bundesliga',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
+      risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Manchester United',
-      awayTeam: 'Crystal Palace',
+      homeTeam: 'Southampton',
+      awayTeam: 'Tottenham',
       league: 'England Premier League',
       odds: 1.35,
-      tips: 'Manchester United',
+      tips: 'Over +1.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Aarau',
-      awayTeam: 'Wil',
-      league: 'Switzerland Challenge League',
-      odds: 1.20,
+      homeTeam: 'Erzurumspor',
+      awayTeam: 'Sivasspor',
+      league: 'Turkey Super Lig',
+      odds: 1.35,
       tips: 'Over +1.5 Goals',
       risk: 'Low',
       time: ''
     },
     {
-      homeTeam: 'Young Boys',
-      awayTeam: 'FC Zurich',
-      league: 'Switzerland Super League',
-      odds: 1.45,
+      homeTeam: 'Hartberg',
+      awayTeam: 'Wolfsberger AC',
+      league: 'Austria Bundesliga',
+      odds: 1.53,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Berliner AK 07',
-      awayTeam: 'Carl Zeiss Jena',
-      league: 'Germany Regional League',
-      odds: 1.25,
+      homeTeam: 'Chelsea',
+      awayTeam: 'Liverpool',
+      league: 'England Premier League',
+      odds: 1.20,
       tips: 'Over +1.5 Goals',
-      risk: 'Moderate',
+      risk: 'Low/Moderate',
       time: ''
     }
   ]
