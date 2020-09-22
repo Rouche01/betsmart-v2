@@ -74,57 +74,57 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Egersund',
-      awayTeam: 'Rosenborg 2',
-      league: 'Norway League 2 Divisjon 2',
+      homeTeam: 'Excelsior',
+      awayTeam: 'Telstar',
+      league: 'Netherlands Eerste Divisie',
       odds: 1.40,
       tips: 'Over +2.5 Goals',
+      risk: 'Low',
+      time: ''
+    },
+    {
+      homeTeam: 'Feirense',
+      awayTeam: 'Casa Pia',
+      league: 'Portugal Segunda Liga',
+      odds: 1.38,
+      tips: 'Feirense Wins',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Jong FC Utrecht',
-      awayTeam: 'NAC Breda',
-      league: 'Netherlands Eerste Divisie',
-      odds: 1.45,
+      homeTeam: 'Luton',
+      awayTeam: 'Manchester Utd',
+      league: 'England Cup',
+      odds: 1.36,
+      tips: 'Manchester Utd Wins',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'El Zamalek',
+      awayTeam: 'Tanta',
+      league: 'Egypt Premier League',
+      odds: 1.37,
+      tips: 'Zamalek Wins',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Tianjin Teda',
+      awayTeam: 'Hebei CFFC',
+      league: 'China Super League Grp. B',
+      odds: 1.63,
       tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
+      risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Aasane',
-      awayTeam: 'Oeygarden FK',
-      league: 'Norway 1st Division',
+      homeTeam: 'Den Bosch',
+      awayTeam: 'Maastricht',
+      league: 'Netherlands Eerste Divisie',
       odds: 1.50,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Sirius',
-      awayTeam: 'Falkenbergs FF',
-      league: 'Sweden Allsvenskan',
-      odds: 1.60,
-      tips: 'Over +2.5 Goals',
-      risk: 'Moderate/High',
-      time: ''
-    },
-    {
-      homeTeam: 'Ull/Kisa',
-      awayTeam: 'Raufoss',
-      league: 'Norway 1st Division',
-      odds: 1.46,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'AC Milan',
-      awayTeam: 'Bologna',
-      league: 'Italy Serie A',
-      odds: 1.67,
-      tips: 'Over +2.5 Goals',
-      risk: 'High',
       time: ''
     }
   ]
