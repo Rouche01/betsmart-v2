@@ -74,55 +74,55 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Nykopings BIS',
-      awayTeam: 'IFK Haninge',
-      league: 'Sweden Div 1, Norra',
-      odds: 1.37,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Chelsea',
-      awayTeam: 'Barnsley',
-      league: 'England - EFL Cup',
-      odds: 1.50,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Team TG FF',
-      awayTeam: 'Taeby FK',
-      league: 'Sweden Div 1, Norra',
+      homeTeam: 'Oeygarden FK',
+      awayTeam: 'Sogndal',
+      league: 'Norway, 1. Division',
       odds: 1.45,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'FC Kosice',
-      awayTeam: 'Slovan Bratislava B',
-      league: 'Slovakia, 2. Liga',
-      odds: 1.30,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low',
-      time: ''
-    },
-    {
-      homeTeam: 'Luckenwalde',
-      awayTeam: 'Berliner AK 07',
-      league: 'Germany Regionalliga Northeast',
-      odds: 1.40,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Skoevde',
-      awayTeam: 'Assyriska',
-      league: 'Sweden Div 1, Norra',
+      homeTeam: 'Raufoss',
+      awayTeam: 'Sandnes',
+      league: 'Norway 1. Division',
+      odds: 1.42,
+      tips: 'Over +2.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Almere City',
+      awayTeam: 'Helmond Sport',
+      league: 'Netherlands Eerste Divisie',
       odds: 1.45,
+      tips: 'Over +2.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'FF Jaro',
+      awayTeam: 'AC Oulu',
+      league: 'Finland Ykkonen',
+      odds: 1.58,
+      tips: 'Both Team to Score',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Hvidovre',
+      awayTeam: 'Hobro',
+      league: 'Denmark 1. Division',
+      odds: 1.40,
+      tips: 'Both Team to Score',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Cambuur',
+      awayTeam: 'Jong FC Utrecht',
+      league: 'Netherlands Eerste Divisie',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
