@@ -74,57 +74,57 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Oeygarden FK',
-      awayTeam: 'Sogndal',
+      homeTeam: 'Valencia',
+      awayTeam: 'Huesca',
       league: 'Norway, 1. Division',
+      odds: 1.40,
+      tips: 'Over +1.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Kayserispor',
+      awayTeam: 'Erzurum',
+      league: 'Turkey Super Lig',
+      odds: 1.35,
+      tips: 'Under 3.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Benfica',
+      awayTeam: 'Moreirense',
+      league: 'Portugal Primeira Liga',
       odds: 1.45,
       tips: 'Over +2.5 Goals',
-      risk: 'Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Raufoss',
-      awayTeam: 'Sandnes',
-      league: 'Norway 1. Division',
-      odds: 1.42,
-      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Almere City',
-      awayTeam: 'Helmond Sport',
-      league: 'Netherlands Eerste Divisie',
-      odds: 1.45,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'FF Jaro',
-      awayTeam: 'AC Oulu',
-      league: 'Finland Ykkonen',
-      odds: 1.58,
-      tips: 'Both Team to Score',
+      homeTeam: 'Ajax',
+      awayTeam: 'Vitesse Arnhem',
+      league: 'Netherlands Eredivisie',
+      odds: 1.35,
+      tips: 'Ajax Wins',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Hvidovre',
-      awayTeam: 'Hobro',
-      league: 'Denmark 1. Division',
-      odds: 1.40,
-      tips: 'Both Team to Score',
+      homeTeam: 'Slavia Prague',
+      awayTeam: 'Slovacko',
+      league: 'Czech Republic 1. Liga',
+      odds: 1.35,
+      tips: 'Over +1.5 Goals',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Cambuur',
-      awayTeam: 'Jong FC Utrecht',
-      league: 'Netherlands Eerste Divisie',
-      odds: 1.40,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
+      homeTeam: 'Boavista',
+      awayTeam: 'Porto',
+      league: 'Portugal Primera',
+      odds: 1.55,
+      tips: 'Porto Wins',
+      risk: 'Moderate/High',
       time: ''
     }
   ]
