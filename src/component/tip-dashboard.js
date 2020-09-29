@@ -74,56 +74,56 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Valencia',
-      awayTeam: 'Huesca',
-      league: 'Norway, 1. Division',
-      odds: 1.40,
-      tips: 'Over +1.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Kayserispor',
-      awayTeam: 'Erzurum',
-      league: 'Turkey Super Lig',
-      odds: 1.35,
-      tips: 'Under 3.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Benfica',
-      awayTeam: 'Moreirense',
-      league: 'Portugal Primeira Liga',
-      odds: 1.45,
+      homeTeam: 'Keflavik',
+      awayTeam: 'Vestmannaeyjar',
+      league: 'Iceland 1. Delid',
+      odds: 1.50,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Ajax',
-      awayTeam: 'Vitesse Arnhem',
-      league: 'Netherlands Eredivisie',
-      odds: 1.35,
-      tips: 'Ajax Wins',
-      risk: 'Moderate',
+      homeTeam: 'Blau-Weiss Linz',
+      awayTeam: 'Amstetten',
+      league: 'Austria 2. Liga',
+      odds: 1.45,
+      tips: 'Over 2.5 Goals',
+      risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Slavia Prague',
-      awayTeam: 'Slovacko',
-      league: 'Czech Republic 1. Liga',
-      odds: 1.35,
-      tips: 'Over +1.5 Goals',
-      risk: 'Moderate',
+      homeTeam: 'Austria Wien',
+      awayTeam: 'SV Horn',
+      league: 'Austria 2. Liga',
+      odds: 1.50,
+      tips: 'Over +2.5 Goals',
+      risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Boavista',
-      awayTeam: 'Porto',
-      league: 'Portugal Primera',
+      homeTeam: 'Arka Gdynia',
+      awayTeam: 'GKS Tychy',
+      league: 'Poland Liga 1',
       odds: 1.55,
-      tips: 'Porto Wins',
+      tips: 'Over +2.5 Goals',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'FC Eindhoven',
+      awayTeam: 'Roda JC',
+      league: 'Netherlands Eerste Divisie',
+      odds: 1.55,
+      tips: 'Over +2.5 Goals',
+      risk: 'Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Tottenham Hotspur',
+      awayTeam: 'Chelsea',
+      league: 'England, EFL Cup',
+      odds: 1.60,
+      tips: 'Over +2.5 Goals',
       risk: 'Moderate/High',
       time: ''
     }
