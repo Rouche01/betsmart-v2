@@ -74,57 +74,57 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Keflavik',
-      awayTeam: 'Vestmannaeyjar',
-      league: 'Iceland 1. Delid',
-      odds: 1.50,
+      homeTeam: 'KV Vesturbaer',
+      awayTeam: 'UMF Tindastoll',
+      league: 'Iceland 3. Delid',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Blau-Weiss Linz',
-      awayTeam: 'Amstetten',
-      league: 'Austria 2. Liga',
-      odds: 1.45,
+      homeTeam: 'Real Madrid',
+      awayTeam: 'Real Valladolid',
+      league: 'Spain La Liga',
+      odds: 1.38,
       tips: 'Over 2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Austria Wien',
-      awayTeam: 'SV Horn',
-      league: 'Austria 2. Liga',
-      odds: 1.50,
+      homeTeam: 'Augnablik',
+      awayTeam: 'Aegir',
+      league: 'Iceland 3. Delid',
+      odds: 1.45,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Arka Gdynia',
-      awayTeam: 'GKS Tychy',
-      league: 'Poland Liga 1',
+      homeTeam: 'Dortmund',
+      awayTeam: 'Bayern Munich',
+      league: 'Germany Super Cup',
       odds: 1.55,
-      tips: 'Over +2.5 Goals',
+      tips: 'Bayern Wins',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'FC Eindhoven',
-      awayTeam: 'Roda JC',
-      league: 'Netherlands Eerste Divisie',
+      homeTeam: 'Benevento',
+      awayTeam: 'Inter Milan',
+      league: 'Italy Serie A',
       odds: 1.55,
-      tips: 'Over +2.5 Goals',
-      risk: 'Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Tottenham Hotspur',
-      awayTeam: 'Chelsea',
-      league: 'England, EFL Cup',
-      odds: 1.60,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate/High',
+      time: ''
+    },
+    {
+      homeTeam: 'Ekenas',
+      awayTeam: 'Musan Salama',
+      league: 'Finland - Ykkonen',
+      odds: 1.48,
+      tips: 'Over +2.5 Goals',
+      risk: 'Moderate',
       time: ''
     }
   ]
