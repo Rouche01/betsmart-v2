@@ -74,59 +74,59 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'KV Vesturbaer',
-      awayTeam: 'UMF Tindastoll',
-      league: 'Iceland 3. Delid',
-      odds: 1.40,
-      tips: 'Over +2.5 Goals',
+      homeTeam: 'El Gounah',
+      awayTeam: 'Tanta',
+      league: 'Egypt Premier League',
+      odds: 1.61,
+      tips: 'El Gounah',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Real Madrid',
-      awayTeam: 'Real Valladolid',
+      homeTeam: 'Sevilla',
+      awayTeam: 'Levante',
       league: 'Spain La Liga',
-      odds: 1.38,
-      tips: 'Over 2.5 Goals',
+      odds: 1.58,
+      tips: 'Sevilla',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Augnablik',
-      awayTeam: 'Aegir',
-      league: 'Iceland 3. Delid',
+      homeTeam: 'Stjarnan',
+      awayTeam: 'Hafnarfjordur',
+      league: 'Iceland Urvalsdeild',
       odds: 1.45,
-      tips: 'Over +2.5 Goals',
+      tips: 'Both Teams Score',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Dortmund',
-      awayTeam: 'Bayern Munich',
-      league: 'Germany Super Cup',
-      odds: 1.55,
-      tips: 'Bayern Wins',
-      risk: 'Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Benevento',
-      awayTeam: 'Inter Milan',
-      league: 'Italy Serie A',
-      odds: 1.55,
-      tips: 'Over +2.5 Goals',
-      risk: 'Moderate/High',
-      time: ''
-    },
-    {
-      homeTeam: 'Ekenas',
-      awayTeam: 'Musan Salama',
-      league: 'Finland - Ykkonen',
-      odds: 1.48,
+      homeTeam: 'Liverpool',
+      awayTeam: 'Arsenal',
+      league: 'England EFL Cup',
+      odds: 1.60,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate',
       time: ''
-    }
+    },
+    // {
+    //   homeTeam: 'Benevento',
+    //   awayTeam: 'Inter Milan',
+    //   league: 'Italy Serie A',
+    //   odds: 1.55,
+    //   tips: 'Over +2.5 Goals',
+    //   risk: 'Moderate/High',
+    //   time: ''
+    // },
+    // {
+    //   homeTeam: 'Ekenas',
+    //   awayTeam: 'Musan Salama',
+    //   league: 'Finland - Ykkonen',
+    //   odds: 1.48,
+    //   tips: 'Over +2.5 Goals',
+    //   risk: 'Moderate',
+    //   time: ''
+    // }
   ]
 
   const handleLogout = async() => {

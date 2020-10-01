@@ -68,8 +68,19 @@ const Login = (props) => {
       }
       setUser(userInfo);
       // console.log(userInfo);
+      const sessionInfo = await Auth.currentSession();
+      const groupInfo = sessionInfo.accessToken.payload['cognito:groups'];
+      
       setLoadingState(false);
-      navigate('/app/dashboard');
+
+      if(groupInfo.includes('admin')) {
+        // console.log(groupInfo);
+        navigate('/app/admin-dashboard');
+      } else {
+        // console.log('not admin');
+        navigate('/app/dashboard');
+      }
+
     } catch(err) {
       console.log(err, 'error signing in');
       setLoginError(err.message);
