@@ -60,8 +60,27 @@ const AdminDashboard = (props) => {
         }
     }
 
+    const deleteTipHandler = (e) => {
+        const targetIdx = e.target.parentNode.id.split('_')[1];
+        console.log('working', targetIdx);
+
+        const copyTipsData = [...tipsData];
+        copyTipsData.splice(0, 1);
+        console.log(copyTipsData);
+        setTipsData(copyTipsData);
+    }
+
     const onSubmit = () => {
         setLoadingState(true);
+
+        const formResetState = {
+            homeTeam: '',
+            awayTeam: '',
+            league: '',
+            odds: '',
+            tips: '',
+            risk: ''
+        };
 
         let errorsInit = {};
 
@@ -80,6 +99,7 @@ const AdminDashboard = (props) => {
             copyTipsData.push(formData);
 
             setTipsData(copyTipsData);
+            setFormData(formResetState);
         }
 
         setLoadingState(false);
@@ -90,7 +110,7 @@ const AdminDashboard = (props) => {
             <div className={styles.savedTips}>
                 { tipsData.length > 0 && tipsData.map((tipData, idx) => {
                     return (
-                        <TipBox key={`tipData_${idx}`} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
+                        <TipBox key={`tipData_${idx}`} id={`tipData_${idx}`} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnHandler={deleteTipHandler} btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
                     )
                 })
                 }
@@ -99,26 +119,26 @@ const AdminDashboard = (props) => {
                 <h3>Create a New Bet Tip</h3>
                 <div className="row">
                     <div className="col-md-6">
-                        <Input changed={inputChange} error={validationErrors.homeTeam} type='text' nameAttr='homeTeam' label='Home Team' id='homeTeam' />
+                        <Input changed={inputChange} error={validationErrors.homeTeam} type='text' nameAttr='homeTeam' label='Home Team' id='homeTeam' value={formData.homeTeam} />
                     </div>
                     <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.awayTeam} type='text' nameAttr="awayTeam" label="Away Team" id="awayTeam" />
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.league} type='text' nameAttr='leagueName' label='League' id='league' />
-                    </div>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.odds} type='number' nameAttr='odds' label='Odds' id='odds' />
+                        <Input changed={inputChange} error={validationErrors.awayTeam} type='text' nameAttr="awayTeam" label="Away Team" id="awayTeam" value={formData.awayTeam} />
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.tips} type='text' nameAttr='tips' label='Tips' id='tips' />
+                        <Input changed={inputChange} error={validationErrors.league} type='text' nameAttr='leagueName' label='League' id='league' value={formData.league} />
                     </div>
                     <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.risk} type='text' nameAttr='risk' label='Risk' id='risk' />
+                        <Input changed={inputChange} error={validationErrors.odds} type='number' nameAttr='odds' label='Odds' id='odds' value={formData.odds} />
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-6'>
+                        <Input changed={inputChange} error={validationErrors.tips} type='text' nameAttr='tips' label='Tips' id='tips' value={formData.tips} />
+                    </div>
+                    <div className='col-md-6'>
+                        <Input changed={inputChange} error={validationErrors.risk} type='text' nameAttr='risk' label='Risk' id='risk' value={formData.risk} />
                     </div>
                 </div>
                 <button onClick={onSubmit} >Create Tip

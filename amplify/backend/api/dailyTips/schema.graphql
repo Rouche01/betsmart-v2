@@ -1,0 +1,9 @@
+type Tip @model {
+  id: ID!
+  homeTeam: String!
+  awayTeam: String!
+  league: String!
+  odds: String!
+  tips: String!
+  risk: String!
+}

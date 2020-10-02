@@ -74,50 +74,50 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'El Gounah',
-      awayTeam: 'Tanta',
-      league: 'Egypt Premier League',
-      odds: 1.61,
-      tips: 'El Gounah',
+      homeTeam: 'NAC Breda',
+      awayTeam: 'Jong Ajax',
+      league: 'Netherlands Eerste Divisie',
+      odds: 1.40,
+      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Sevilla',
-      awayTeam: 'Levante',
-      league: 'Spain La Liga',
-      odds: 1.58,
-      tips: 'Sevilla',
+      homeTeam: 'Gaziantep FK',
+      awayTeam: 'Trabzonspor',
+      league: 'Turkey Super Lig',
+      odds: 1.63,
+      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Stjarnan',
-      awayTeam: 'Hafnarfjordur',
-      league: 'Iceland Urvalsdeild',
-      odds: 1.45,
-      tips: 'Both Teams Score',
+      homeTeam: 'Fenerbache',
+      awayTeam: 'Crvena Zvezda',
+      league: 'Euroleague',
+      odds: 1.35,
+      tips: 'Fenerbache Wins',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Liverpool',
-      awayTeam: 'Arsenal',
-      league: 'England EFL Cup',
-      odds: 1.60,
+      homeTeam: 'Utrecht',
+      awayTeam: 'Heerenveen',
+      league: 'Netherlands Eredivisie',
+      odds: 1.50,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate',
       time: ''
     },
-    // {
-    //   homeTeam: 'Benevento',
-    //   awayTeam: 'Inter Milan',
-    //   league: 'Italy Serie A',
-    //   odds: 1.55,
-    //   tips: 'Over +2.5 Goals',
-    //   risk: 'Moderate/High',
-    //   time: ''
-    // },
+    {
+      homeTeam: 'Amstetten',
+      awayTeam: 'FC Wacker',
+      league: 'Austria 2. Liga',
+      odds: 1.55,
+      tips: 'Over +2.5 Goals',
+      risk: 'Moderate/High',
+      time: ''
+    },
     // {
     //   homeTeam: 'Ekenas',
     //   awayTeam: 'Musan Salama',
