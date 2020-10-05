@@ -74,46 +74,46 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Brann',
-      awayTeam: 'Molde',
-      league: 'Norway - Eliteserien',
-      odds: 1.50,
+      homeTeam: 'Degerfors',
+      awayTeam: 'Vaesteraas SK',
+      league: 'Sweden Superettan',
+      odds: 1.43,
+      tips: 'Degerfors Wins',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'El Gounah',
+      awayTeam: 'Al Masry',
+      league: 'Egypt Premier League',
+      odds: 1.53,
+      tips: 'Under +2.5 Goals',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Nuernberg',
+      awayTeam: 'Darmstadt',
+      league: 'Germany Bundesliga 2',
+      odds: 1.55,
+      tips: 'Both Teams to Score',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'TOP Oss',
+      awayTeam: 'FC Dordrecht',
+      league: 'Netherlands Eerste Divisie',
+      odds: 1.65,
       tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Atalanta',
-      awayTeam: 'Cagliari',
-      league: 'Italy Serie A',
-      odds: 1.40,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Club Brugge',
-      awayTeam: 'Anderlecht',
-      league: 'Belgium First Division A',
-      odds: 1.59,
-      tips: 'Club Brugge Wins',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Riga FC',
-      awayTeam: 'FK Liepaja',
-      league: 'Latvia - Virsliga',
-      odds: 1.45,
-      tips: 'Riga FC Wins',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'PSV Eindhoven',
-      awayTeam: 'Fortuna Sittard',
-      league: 'Netherlands Eredivisie',
-      odds: 1.45,
+      homeTeam: 'Real Salt Lake',
+      awayTeam: 'Los Angeles FC',
+      league: 'USA Major League Soccer',
+      odds: 1.51,
       tips: 'Over +2.5 Goals',
       risk: 'High',
       time: ''
