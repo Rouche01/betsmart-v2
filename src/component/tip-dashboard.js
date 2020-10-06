@@ -74,48 +74,48 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Degerfors',
-      awayTeam: 'Vaesteraas SK',
-      league: 'Sweden Superettan',
-      odds: 1.43,
-      tips: 'Degerfors Wins',
+      homeTeam: 'Hedensted',
+      awayTeam: 'Viborg',
+      league: 'Denmark DBU Pokalen',
+      odds: 1.37,
+      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'El Gounah',
-      awayTeam: 'Al Masry',
-      league: 'Egypt Premier League',
-      odds: 1.53,
-      tips: 'Under +2.5 Goals',
+      homeTeam: 'Hall',
+      awayTeam: 'Reichenau',
+      league: 'Austria Regionalliga West - Tyrol',
+      odds: 1.45,
+      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Nuernberg',
-      awayTeam: 'Darmstadt',
-      league: 'Germany Bundesliga 2',
-      odds: 1.55,
-      tips: 'Both Teams to Score',
+      homeTeam: 'Haessleholms IF',
+      awayTeam: 'Halmstads BK',
+      league: 'Sweden Cup',
+      odds: 1.38,
+      tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'TOP Oss',
-      awayTeam: 'FC Dordrecht',
-      league: 'Netherlands Eerste Divisie',
-      odds: 1.65,
+      homeTeam: 'Redlands United',
+      awayTeam: 'Sunshine Coast Wanderers',
+      league: 'Australia Queensland',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
       risk: 'Moderate',
       time: ''
     },
     {
-      homeTeam: 'Real Salt Lake',
-      awayTeam: 'Los Angeles FC',
-      league: 'USA Major League Soccer',
-      odds: 1.51,
+      homeTeam: 'FC Sydvest',
+      awayTeam: 'Randers FC',
+      league: 'Denmark DBU Pokalen',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
-      risk: 'High',
+      risk: 'Moderate',
       time: ''
     },
     // {
