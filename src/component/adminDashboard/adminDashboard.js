@@ -3,6 +3,11 @@ import styles from './adminDashboard.module.scss';
 import Input from '../input/input';
 import TipBox from '../tipBox/tipBox';
 
+// for graphql API consumption
+import { graphqlOperation, API } from "aws-amplify";
+import { createTip } from '../../graphql/mutations';
+import { listTips } from '../../graphql/queries';
+
 
 const AdminDashboard = (props) => {
     const [loadingState, setLoadingState] = useState(false);

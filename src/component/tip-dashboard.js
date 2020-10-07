@@ -74,47 +74,47 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Hedensted',
-      awayTeam: 'Viborg',
+      homeTeam: 'Aarhus Fremad',
+      awayTeam: 'Vendsyssel FF',
       league: 'Denmark DBU Pokalen',
-      odds: 1.37,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Hall',
-      awayTeam: 'Reichenau',
-      league: 'Austria Regionalliga West - Tyrol',
       odds: 1.45,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Haessleholms IF',
-      awayTeam: 'Halmstads BK',
-      league: 'Sweden Cup',
-      odds: 1.38,
+      homeTeam: 'Pyramids FC',
+      awayTeam: 'FC Masr',
+      league: 'Egypt Premier League',
+      odds: 1.32,
+      tips: 'Pyramids Wins',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'Denmark',
+      awayTeam: 'Faroe Islands',
+      league: 'International - Friendlies',
+      odds: 1.58,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Redlands United',
-      awayTeam: 'Sunshine Coast Wanderers',
-      league: 'Australia Queensland',
-      odds: 1.40,
+      homeTeam: 'IFK Vaernamo',
+      awayTeam: 'Linkoeping City',
+      league: 'Sweden Ettan Soedra',
+      odds: 1.55,
       tips: 'Over +2.5 Goals',
-      risk: 'Moderate',
+      risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'FC Sydvest',
-      awayTeam: 'Randers FC',
-      league: 'Denmark DBU Pokalen',
-      odds: 1.40,
-      tips: 'Over +2.5 Goals',
+      homeTeam: 'Germany',
+      awayTeam: 'Turkey',
+      league: 'International - Friendlies',
+      odds: 1.45,
+      tips: 'Germany Wins',
       risk: 'Moderate',
       time: ''
     },
