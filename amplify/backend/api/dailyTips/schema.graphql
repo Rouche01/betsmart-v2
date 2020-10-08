@@ -1,4 +1,4 @@
-type Tip @model @auth(rules: [{ allow: public, operations: [read] },
+type Tip @model @auth(rules: [{ allow: groups, groups:["single", "combo"] operations: [read] },
     { allow: groups, groups: ["admin"] }]) {
   id: ID!
   homeTeam: String!

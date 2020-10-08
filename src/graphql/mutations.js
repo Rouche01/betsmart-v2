@@ -16,7 +16,6 @@ export const createTip = /* GraphQL */ `
       risk
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -35,7 +34,6 @@ export const updateTip = /* GraphQL */ `
       risk
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -54,7 +52,6 @@ export const deleteTip = /* GraphQL */ `
       risk
       createdAt
       updatedAt
-      owner
     }
   }
 `;
