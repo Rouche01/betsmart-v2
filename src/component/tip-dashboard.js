@@ -9,19 +9,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'gatsby';
 import { navigate } from '@reach/router'
-import Amplify, { Auth, API } from 'aws-amplify';
+import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import TipBox from './tipBox/tipBox';
 import Input from './input/input';
 import SEO from './seo';
 import BlockedEntry from './blockedEntry/blockedEntry';
 import OverlayPop from './overlayPop/overlayPop';
+
+// for graphql API consumption
+import { listTips } from '../graphql/queries';
+
 Amplify.configure(awsconfig);
+
+
 
 
 const TipDashboard = (props) => {
 
   let user = getCurrentUser();
+
+  useEffect(() => {
+    fetchTips();
+  }, [])
 
   useEffect(() => {
     Auth.currentAuthenticatedUser().then(res => {
@@ -34,6 +44,18 @@ const TipDashboard = (props) => {
       console.log(err);
     })
   }, [])
+
+
+  const fetchTips = async() => {
+    try {
+        const tips = await API.graphql(graphqlOperation(listTips));
+        const tipsData = tips.data.listTips.items;
+        setTipsData(tipsData);
+        console.log(tipsData);
+    } catch(err) {
+        console.log("error retrieving tips");
+    }
+  }
 
   const plan = user['custom:user-type'];
   const formattedPlan = plan.charAt(0).toUpperCase() + plan.slice(1);
@@ -60,6 +82,7 @@ const TipDashboard = (props) => {
   const [supportMessage, setSupportMessage] = useState('');
   const [paymentStatus, setPaymentStatus] = useState('');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [tipsData, setTipsData] = useState([]);
 
 
   useEffect(() => {
@@ -72,62 +95,62 @@ const TipDashboard = (props) => {
 
   const genderRef = useRef();
 
-  const tipData = [
-    {
-      homeTeam: 'Belgium',
-      awayTeam: 'Ivory Coast',
-      league: 'International Friendlies',
-      odds: 1.42,
-      tips: 'Belgium Wins',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'CSKA',
-      awayTeam: 'M. Tel Aviv',
-      league: 'EuroLeague',
-      odds: 1.55,
-      tips: 'CSKA Wins',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'JJK',
-      awayTeam: 'KuFu-98',
-      league: 'Finland Kakkonen Group C',
-      odds: 1.40,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'LA Galaxy',
-      awayTeam: 'Portland Timbers',
-      league: 'USA Major League Soccer',
-      odds: 1.55,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Norway',
-      awayTeam: 'Serbia',
-      league: 'Euro 2020',
-      odds: 1.38,
-      tips: 'Over +1.5 Goals',
-      risk: 'Moderate',
-      time: ''
-    },
-    // {
-    //   homeTeam: 'Ekenas',
-    //   awayTeam: 'Musan Salama',
-    //   league: 'Finland - Ykkonen',
-    //   odds: 1.48,
-    //   tips: 'Over +2.5 Goals',
-    //   risk: 'Moderate',
-    //   time: ''
-    // }
-  ]
+  // const tipData = [
+  //   {
+  //     homeTeam: 'Belgium',
+  //     awayTeam: 'Ivory Coast',
+  //     league: 'International Friendlies',
+  //     odds: 1.42,
+  //     tips: 'Belgium Wins',
+  //     risk: 'Low/Moderate',
+  //     time: ''
+  //   },
+  //   {
+  //     homeTeam: 'CSKA',
+  //     awayTeam: 'M. Tel Aviv',
+  //     league: 'EuroLeague',
+  //     odds: 1.55,
+  //     tips: 'CSKA Wins',
+  //     risk: 'Low/Moderate',
+  //     time: ''
+  //   },
+  //   {
+  //     homeTeam: 'JJK',
+  //     awayTeam: 'KuFu-98',
+  //     league: 'Finland Kakkonen Group C',
+  //     odds: 1.40,
+  //     tips: 'Over +2.5 Goals',
+  //     risk: 'Low/Moderate',
+  //     time: ''
+  //   },
+  //   {
+  //     homeTeam: 'LA Galaxy',
+  //     awayTeam: 'Portland Timbers',
+  //     league: 'USA Major League Soccer',
+  //     odds: 1.55,
+  //     tips: 'Over +2.5 Goals',
+  //     risk: 'Low/Moderate',
+  //     time: ''
+  //   },
+  //   {
+  //     homeTeam: 'Norway',
+  //     awayTeam: 'Serbia',
+  //     league: 'Euro 2020',
+  //     odds: 1.38,
+  //     tips: 'Over +1.5 Goals',
+  //     risk: 'Moderate',
+  //     time: ''
+  //   },
+  //   // {
+  //   //   homeTeam: 'Ekenas',
+  //   //   awayTeam: 'Musan Salama',
+  //   //   league: 'Finland - Ykkonen',
+  //   //   odds: 1.48,
+  //   //   tips: 'Over +2.5 Goals',
+  //   //   risk: 'Moderate',
+  //   //   time: ''
+  //   // }
+  // ]
 
   const handleLogout = async() => {
     await Auth.signOut();
@@ -360,7 +383,7 @@ const TipDashboard = (props) => {
               </div>
             </div>
             <div className="col-md-7 mt-md-0 mt-4">
-              { dashboardState === 'home' &&  tipData.map((tip, idx) => {
+              { dashboardState === 'home' &&  tipsData.map((tip, idx) => {
                 return (
                   <TipBox key={`tip_${idx}`} hTeam={tip.homeTeam} aTeam={tip.awayTeam} leagueName={tip.league} odds={tip.odds} tips={tip.tips} riskLevel={tip.risk} />
                 )

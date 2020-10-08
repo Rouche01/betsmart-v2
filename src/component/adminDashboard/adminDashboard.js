@@ -81,15 +81,17 @@ const AdminDashboard = (props) => {
     }
 
     const deleteTipHandler = async(e) => {
-        const targetIdx = e.target.parentNode.id;
-        console.log('working', targetIdx);
+        const targetID = e.target.parentNode.id;
+        console.log('working', targetID);
 
         const copyTipsData = [...tipsData];
-        const idx = copyTipsData.findIndex(targetTip => targetTip.id = targetIdx);
+        const idx = copyTipsData.findIndex(targetTip => targetTip.id = targetID);
         console.log(copyTipsData[idx]);
         try {
             const target = copyTipsData[idx];
-            await API.graphql(graphqlOperation(deleteTip, { input: target}));
+            await API.graphql(graphqlOperation(deleteTip, { input: {
+                id: targetID
+            }}));
             copyTipsData.splice(idx, 1);
             console.log(copyTipsData);
             setTipsData(copyTipsData);
@@ -141,6 +143,15 @@ const AdminDashboard = (props) => {
 
     return(
         <div className={styles.adminDashboard}>
+            <header>
+                <nav>
+                   <h2>Admin</h2> 
+                   <div className={styles.menuBtns}>
+                       <button>User</button>
+                       <button>Sign Out</button>
+                   </div>
+                </nav>
+            </header>
             <div className={styles.savedTips}>
                 { tipsData.length > 0 && tipsData.map((tipData, idx) => {
                     return (

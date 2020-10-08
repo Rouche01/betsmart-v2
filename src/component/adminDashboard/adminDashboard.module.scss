@@ -2,6 +2,46 @@
     font-family: 'Poppins', sans-serif;
     max-width: 950px;
     margin: 0 auto;
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      h2 {
+        margin-top: 12px;
+        font-weight: bold;
+        font-size: 36px;
+      }
+    }
+}
+
+.saved-tips {
+  margin-top: 40px;
+}
+
+.menu-btns {
+  button:nth-child(1) {
+    margin-right: 14px;
+  }
+  button {
+    background-color: #FF9900;
+    padding: 10px 30px;
+    color: #fff;
+    border: none;
+    &:hover {
+        background: rgba(255, 153, 0, 0.9);
+    }
+    &:active {
+        outline: none;
+        border: none;
+        border-radius: 0;
+    }
+    &:focus {
+        outline: none;
+        border: none;
+        border-radius: 0;
+    }
+  }
 }
 
 .tips-form {
@@ -9,6 +49,7 @@
     border-radius: 5px;
     padding: 20px 32px;
     box-sizing: border-box;
+    margin-bottom: 60px;
 
     h3 {
         font-weight: bold;
@@ -64,6 +105,33 @@
         animation: loader 1.5s infinite linear;
         transform: skew(135deg);
     }
+}
+
+@media only screen and (max-width: 499px) {
+  .admin-dashboard {
+    padding: 0 20px;
+    nav {
+      padding: 12px 0;
+      h2 {
+        font-weight: bold;
+        font-size: 28px;
+        margin-left: 5px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .menu-btns {
+    button:nth-child(1) {
+      margin-right: 9px;
+    }
+    button {
+      padding: 8px 18px;
+      font-size: 14px;
+      color: #fff;
+      border: none;
+    }
+  }
 }
 
 $spacer: 8px;
