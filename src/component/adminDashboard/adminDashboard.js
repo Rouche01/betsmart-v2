@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './adminDashboard.module.scss';
 import Input from '../input/input';
 import TipBox from '../tipBox/tipBox';
 
 // for graphql API consumption
 import { graphqlOperation, API } from "aws-amplify";
-import { createTip } from '../../graphql/mutations';
+import { createTip, deleteTip } from '../../graphql/mutations';
 import { listTips } from '../../graphql/queries';
 
 
@@ -21,6 +21,21 @@ const AdminDashboard = (props) => {
     });
     const [tipsData, setTipsData] = useState([]);
     const [validationErrors, setValidationErrors] = useState({});
+
+    useEffect(() => {
+        fetchTips();
+    }, []);
+
+    const fetchTips = async() => {
+        try {
+            const tips = await API.graphql(graphqlOperation(listTips));
+            const tipsData = tips.data.listTips.items;
+            setTipsData(tipsData);
+            console.log(tipsData);
+        } catch(err) {
+            console.log("error retrieving tips");
+        }
+    }
 
     const inputChange = e => {
         switch(e.target.id) {
@@ -65,17 +80,25 @@ const AdminDashboard = (props) => {
         }
     }
 
-    const deleteTipHandler = (e) => {
-        const targetIdx = e.target.parentNode.id.split('_')[1];
+    const deleteTipHandler = async(e) => {
+        const targetIdx = e.target.parentNode.id;
         console.log('working', targetIdx);
 
         const copyTipsData = [...tipsData];
-        copyTipsData.splice(0, 1);
-        console.log(copyTipsData);
-        setTipsData(copyTipsData);
+        const idx = copyTipsData.findIndex(targetTip => targetTip.id = targetIdx);
+        console.log(copyTipsData[idx]);
+        try {
+            const target = copyTipsData[idx];
+            await API.graphql(graphqlOperation(deleteTip, { input: target}));
+            copyTipsData.splice(idx, 1);
+            console.log(copyTipsData);
+            setTipsData(copyTipsData);
+        } catch(err) {
+            console.log(err);
+        }
     }
 
-    const onSubmit = () => {
+    const onSubmit = async() => {
         setLoadingState(true);
 
         const formResetState = {
@@ -103,11 +126,17 @@ const AdminDashboard = (props) => {
             let copyTipsData = [...tipsData];
             copyTipsData.push(formData);
 
-            setTipsData(copyTipsData);
-            setFormData(formResetState);
+            try {
+                await API.graphql(graphqlOperation(createTip, { input: formData}));
+                setTipsData(copyTipsData);
+                setFormData(formResetState);
+                setLoadingState(false);
+            } catch(err) {
+                console.log(err);
+                setFormData(formResetState);
+                setLoadingState(false);
+            }
         }
-
-        setLoadingState(false);
     }
 
     return(
@@ -115,7 +144,7 @@ const AdminDashboard = (props) => {
             <div className={styles.savedTips}>
                 { tipsData.length > 0 && tipsData.map((tipData, idx) => {
                     return (
-                        <TipBox key={`tipData_${idx}`} id={`tipData_${idx}`} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnHandler={deleteTipHandler} btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
+                        <TipBox key={`tipData_${idx}`} id={tipData.id} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnHandler={deleteTipHandler} btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
                     )
                 })
                 }

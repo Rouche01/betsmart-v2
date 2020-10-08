@@ -83,7 +83,10 @@
 			"output": {
 				"authConfig": {
 					"defaultAuthentication": {
-						"authenticationType": "AWS_IAM"
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authbetsmartae0f5c9b"
+						}
 					},
 					"additionalAuthenticationProviders": []
 				}

@@ -74,47 +74,47 @@ const TipDashboard = (props) => {
 
   const tipData = [
     {
-      homeTeam: 'Aarhus Fremad',
-      awayTeam: 'Vendsyssel FF',
-      league: 'Denmark DBU Pokalen',
-      odds: 1.45,
+      homeTeam: 'Belgium',
+      awayTeam: 'Ivory Coast',
+      league: 'International Friendlies',
+      odds: 1.42,
+      tips: 'Belgium Wins',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'CSKA',
+      awayTeam: 'M. Tel Aviv',
+      league: 'EuroLeague',
+      odds: 1.55,
+      tips: 'CSKA Wins',
+      risk: 'Low/Moderate',
+      time: ''
+    },
+    {
+      homeTeam: 'JJK',
+      awayTeam: 'KuFu-98',
+      league: 'Finland Kakkonen Group C',
+      odds: 1.40,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Pyramids FC',
-      awayTeam: 'FC Masr',
-      league: 'Egypt Premier League',
-      odds: 1.32,
-      tips: 'Pyramids Wins',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'Denmark',
-      awayTeam: 'Faroe Islands',
-      league: 'International - Friendlies',
-      odds: 1.58,
-      tips: 'Over +2.5 Goals',
-      risk: 'Low/Moderate',
-      time: ''
-    },
-    {
-      homeTeam: 'IFK Vaernamo',
-      awayTeam: 'Linkoeping City',
-      league: 'Sweden Ettan Soedra',
+      homeTeam: 'LA Galaxy',
+      awayTeam: 'Portland Timbers',
+      league: 'USA Major League Soccer',
       odds: 1.55,
       tips: 'Over +2.5 Goals',
       risk: 'Low/Moderate',
       time: ''
     },
     {
-      homeTeam: 'Germany',
-      awayTeam: 'Turkey',
-      league: 'International - Friendlies',
-      odds: 1.45,
-      tips: 'Germany Wins',
+      homeTeam: 'Norway',
+      awayTeam: 'Serbia',
+      league: 'Euro 2020',
+      odds: 1.38,
+      tips: 'Over +1.5 Goals',
       risk: 'Moderate',
       time: ''
     },

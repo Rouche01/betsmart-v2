@@ -13,6 +13,7 @@ export const getTip = /* GraphQL */ `
       risk
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -33,6 +34,7 @@ export const listTips = /* GraphQL */ `
         risk
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
