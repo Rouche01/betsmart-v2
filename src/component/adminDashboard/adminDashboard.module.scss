@@ -22,6 +22,12 @@
 .menu-btns {
   button:nth-child(1) {
     margin-right: 14px;
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   button {
     background-color: #FF9900;

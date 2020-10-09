@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styles from './adminDashboard.module.scss';
 import Input from '../input/input';
 import TipBox from '../tipBox/tipBox';
+import SEO from '.././seo';
+import { logout } from '../../utils/auth';
 
 // for graphql API consumption
-import { graphqlOperation, API } from "aws-amplify";
+import { graphqlOperation, API, Auth } from "aws-amplify";
 import { createTip, deleteTip } from '../../graphql/mutations';
 import { listTips } from '../../graphql/queries';
+import { Link } from 'gatsby';
+import { navigate } from '@reach/router';
 
 
 const AdminDashboard = (props) => {
@@ -141,56 +145,66 @@ const AdminDashboard = (props) => {
         }
     }
 
+    const handleSignOut = async() => {
+        await Auth.signOut();
+        logout(() => {
+            navigate('/login');
+        })
+    }
+
     return(
-        <div className={styles.adminDashboard}>
-            <header>
-                <nav>
-                   <h2>Admin</h2> 
-                   <div className={styles.menuBtns}>
-                       <button>User</button>
-                       <button>Sign Out</button>
-                   </div>
-                </nav>
-            </header>
-            <div className={styles.savedTips}>
-                { tipsData.length > 0 && tipsData.map((tipData, idx) => {
-                    return (
-                        <TipBox key={`tipData_${idx}`} id={tipData.id} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnHandler={deleteTipHandler} btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
-                    )
-                })
-                }
+        <React.Fragment>
+            <SEO title="Admin Dashboard" />
+            <div className={styles.adminDashboard}>
+                <header>
+                    <nav>
+                    <h2>Admin</h2> 
+                    <div className={styles.menuBtns}>
+                        <button><Link to="/app/dashboard">User</Link></button>
+                        <button onClick={handleSignOut}>Sign Out</button>
+                    </div>
+                    </nav>
+                </header>
+                <div className={styles.savedTips}>
+                    { tipsData.length > 0 && tipsData.map((tipData, idx) => {
+                        return (
+                            <TipBox key={`tipData_${idx}`} id={tipData.id} hTeam={tipData.homeTeam} aTeam={tipData.awayTeam} leagueName={tipData.league} odds={tipData.odds} tips={tipData.tips} riskLevel={tipData.risk} btnName='Delete Tip' btnHandler={deleteTipHandler} btnColor="#fff" btnBgColor="rgb(255, 153, 0)" />
+                        )
+                    })
+                    }
+                </div>
+                <div className={styles.tipsForm}>
+                    <h3>Create a New Bet Tip</h3>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <Input changed={inputChange} error={validationErrors.homeTeam} type='text' nameAttr='homeTeam' label='Home Team' id='homeTeam' value={formData.homeTeam} />
+                        </div>
+                        <div className='col-md-6'>
+                            <Input changed={inputChange} error={validationErrors.awayTeam} type='text' nameAttr="awayTeam" label="Away Team" id="awayTeam" value={formData.awayTeam} />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-md-6'>
+                            <Input changed={inputChange} error={validationErrors.league} type='text' nameAttr='leagueName' label='League' id='league' value={formData.league} />
+                        </div>
+                        <div className='col-md-6'>
+                            <Input changed={inputChange} error={validationErrors.odds} type='number' nameAttr='odds' label='Odds' id='odds' value={formData.odds} />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-md-6'>
+                            <Input changed={inputChange} error={validationErrors.tips} type='text' nameAttr='tips' label='Tips' id='tips' value={formData.tips} />
+                        </div>
+                        <div className='col-md-6'>
+                            <Input changed={inputChange} error={validationErrors.risk} type='text' nameAttr='risk' label='Risk' id='risk' value={formData.risk} />
+                        </div>
+                    </div>
+                    <button onClick={onSubmit} >Create Tip
+                        <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
+                    </button>
+                </div>
             </div>
-            <div className={styles.tipsForm}>
-                <h3>Create a New Bet Tip</h3>
-                <div className="row">
-                    <div className="col-md-6">
-                        <Input changed={inputChange} error={validationErrors.homeTeam} type='text' nameAttr='homeTeam' label='Home Team' id='homeTeam' value={formData.homeTeam} />
-                    </div>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.awayTeam} type='text' nameAttr="awayTeam" label="Away Team" id="awayTeam" value={formData.awayTeam} />
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.league} type='text' nameAttr='leagueName' label='League' id='league' value={formData.league} />
-                    </div>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.odds} type='number' nameAttr='odds' label='Odds' id='odds' value={formData.odds} />
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.tips} type='text' nameAttr='tips' label='Tips' id='tips' value={formData.tips} />
-                    </div>
-                    <div className='col-md-6'>
-                        <Input changed={inputChange} error={validationErrors.risk} type='text' nameAttr='risk' label='Risk' id='risk' value={formData.risk} />
-                    </div>
-                </div>
-                <button onClick={onSubmit} >Create Tip
-                    <span className={loadingState ? [styles.isLoading, styles.btnLoader].join(' ') : styles.btnLoader}><i>Loading...</i></span>
-                  </button>
-            </div>
-        </div>
+        </React.Fragment>
     );
 }
 
