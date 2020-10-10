@@ -92,7 +92,6 @@ const AdminDashboard = (props) => {
         const idx = copyTipsData.findIndex(targetTip => targetTip.id = targetID);
         console.log(copyTipsData[idx]);
         try {
-            const target = copyTipsData[idx];
             await API.graphql(graphqlOperation(deleteTip, { input: {
                 id: targetID
             }}));

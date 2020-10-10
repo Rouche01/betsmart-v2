@@ -135,6 +135,7 @@ export default function Home({data}) {
           <hr style={{borderColor: "#fff", opacity: "0.4"}} />
         </div>
       </div>
+      <script type='text/javascript' src='https://propeller-tracking.com/fv.js?t=81545'></script>
     </Layout>
   )
 }
