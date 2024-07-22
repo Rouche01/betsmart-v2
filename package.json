@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "betsmart-v2",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A membership site with gatsby, serverless functions and aws cognito",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
